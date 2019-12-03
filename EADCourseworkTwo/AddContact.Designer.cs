@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,8 +38,10 @@
             this.numberTxtBox = new System.Windows.Forms.TextBox();
             this.emailTxtBox = new System.Windows.Forms.TextBox();
             this.appointmentsDataSet1 = new EADCourseworkTwo.AppointmentsDataSet();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -143,6 +146,10 @@
             this.appointmentsDataSet1.DataSetName = "AppointmentsDataSet";
             this.appointmentsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // AddContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +160,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,5 +176,6 @@
         private System.Windows.Forms.TextBox numberTxtBox;
         private System.Windows.Forms.TextBox emailTxtBox;
         private AppointmentsDataSet appointmentsDataSet1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

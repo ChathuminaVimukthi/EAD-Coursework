@@ -95,7 +95,7 @@ namespace EADCourseworkTwo
 
         private void addContactBtn_Click(object sender, EventArgs e)
         {
-             AddContactForm addContactForm = new AddContactForm();
+             AddContactForm addContactForm = new AddContactForm(logedInUser);
             addContactForm.Show();
         }
     }

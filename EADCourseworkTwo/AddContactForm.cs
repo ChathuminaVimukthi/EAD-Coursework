@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EADCourseworkTwo.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace EADCourseworkTwo
 {
     public partial class AddContactForm : Form
     {
-        public AddContactForm()
+        User loggedinUser;
+
+        public AddContactForm(User user)
         {
             InitializeComponent();
+            loggedinUser = user;
             showAddForm();
         }
 
@@ -29,17 +33,48 @@ namespace EADCourseworkTwo
                 string email = addContact.Email;
                 int contactNumber = addContact.ContactNumber;
 
-                MessageBox.Show(name+email+contactNumber);
+                if(name == "")
+                {
+                    MessageBox.Show("User Name cannot be empty !");
+                }else if(email == "")
+                {
+                    MessageBox.Show("Enter valid Email Address !");
+                }else if(contactNumber == 0)
+                {
+                    MessageBox.Show("Enter valid Mobile Number !");
+                }
+                else
+                {
+                    Contact contact = new Contact();
+                    contact.ContactName = name;
+                    contact.Email = email;
+                    contact.ContactNumber = contactNumber;
+                    contact.UserId = loggedinUser.UserId;
+
+                    ContactModel contactModel = new ContactModel();
+                    Boolean isInserted = contactModel.addContact(contact);
+                    if (isInserted)
+                    {
+                        MessageBox.Show("Contact saved !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed !");
+                    }
+                }
             }
         }
 
         private void addMoreButton_Click(object sender, EventArgs e)
         {
-            AddContact addContact = new AddContact();
+            /*AddContact addContact = new AddContact();
             addContact.saveContact.Click += SaveButton_Click;
             tableLayoutPanel3.Controls.Add(addContact, 0, 1);
 
-            addMoreButton.Dispose();
+            addMoreButton.Dispose();*/
+            ContactModel addContact = new ContactModel();
+            Contact contact = addContact.getContact(loggedinUser.UserId);
+            MessageBox.Show(contact.ContactName);
         }
 
         private void showAddForm()

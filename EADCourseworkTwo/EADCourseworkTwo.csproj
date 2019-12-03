@@ -86,6 +86,7 @@
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Contact.cs" />
+    <Compile Include="model\ContactModel.cs" />
     <Compile Include="model\UserModel.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -153,10 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Appointments.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Appointments_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Appointments.mdf</DependentUpon>
     </Content>
   </ItemGroup>

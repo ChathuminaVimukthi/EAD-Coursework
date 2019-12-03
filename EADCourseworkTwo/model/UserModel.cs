@@ -18,6 +18,7 @@ namespace EADCourseworkTwo
         public UserModel()
         {
             connectionString = ConfigurationManager.ConnectionStrings["EADCourseworkTwo.Properties.Settings.AppointmentsConnectionString"].ConnectionString;
+
         }
 
         //Register user method

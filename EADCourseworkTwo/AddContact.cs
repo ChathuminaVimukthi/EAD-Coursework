@@ -32,7 +32,14 @@ namespace EADCourseworkTwo
             {
                 if (validatecontactNumber(this.numberTxtBox.Text.ToString()))
                 {
-                    return int.Parse(this.numberTxtBox.Text.ToString());
+                    if(this.numberTxtBox.Text.ToString().Length == 0)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return int.Parse(this.numberTxtBox.Text.ToString());
+                    }
                 }
                 else
                 {
@@ -53,7 +60,7 @@ namespace EADCourseworkTwo
                 else
                 {
                     MessageBox.Show("Email is incorrect !");
-                    return "Email incorrect";
+                    return "";
                 }
             }
         }

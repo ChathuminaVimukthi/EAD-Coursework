@@ -8,14 +8,16 @@ namespace EADCourseworkTwo.model
 {
     class Contact
     {
-        private string id;
+        private int id;
         private string contactName;
+        private int contactNumber;
         private string email;
-        private string userId;
+        private int userId;
 
-        public string Id { get => id; set => id = value; }
+        public int Id { get => id; set => id = value; }
         public string ContactName { get => contactName; set => contactName = value; }
         public string Email { get => email; set => email = value; }
-        public string UserId { get => userId; set => userId = value; }
+        public int UserId { get => userId; set => userId = value; }
+        public int ContactNumber { get => contactNumber; set => contactNumber = value; }
     }
 }
