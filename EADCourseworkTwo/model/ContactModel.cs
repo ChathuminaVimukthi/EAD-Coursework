@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace EADCourseworkTwo.model
 {
@@ -47,6 +48,25 @@ namespace EADCourseworkTwo.model
 
                     if (rowsAdded > 0)
                     {
+                        XmlTextWriter xwriter = new XmlTextWriter(Environment.CurrentDirectory + "\\contactDetails.xml", Encoding.Unicode);
+                        xwriter.WriteStartDocument();
+                        xwriter.WriteStartElement("Contact");
+                        xwriter.WriteStartElement("Name");
+                        xwriter.WriteString(contact.ContactName);
+                        xwriter.WriteEndElement();
+                        xwriter.WriteStartElement("Number");
+                        xwriter.WriteString(contact.ContactNumber.ToString());
+                        xwriter.WriteEndElement();
+                        xwriter.WriteStartElement("Email");
+                        xwriter.WriteString(contact.Email);
+                        xwriter.WriteEndElement();
+                        xwriter.WriteStartElement("UserId");
+                        xwriter.WriteString(contact.UserId.ToString());
+                        xwriter.WriteEndElement();
+                        xwriter.WriteEndElement();
+                        xwriter.WriteEndDocument();
+                        xwriter.Close();
+
                         return true;
                     }
                     else
@@ -60,13 +80,15 @@ namespace EADCourseworkTwo.model
                     return false;
                 }
             }
+
+
             
         }
 
         //Get contacts
-        public Contact getContact(int userId)
+        public IList<Contact> getContact(int userId)
         {
-            Contact contact = new Contact();
+            IList<Contact> contactList = new List<Contact>();
             string queryString = "SELECT * FROM Contact WHERE UserId= '" + userId + "'";
             using (sqlConnection = new SqlConnection(connectionString))
             using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
@@ -82,14 +104,16 @@ namespace EADCourseworkTwo.model
                     string email = row["Email"].ToString();
                     int user = Convert.ToInt32(row["UserId"]);
 
+                    Contact contact = new Contact();
                     contact.Id = id;
                     contact.ContactName = contactName;
                     contact.ContactNumber = contactNumber;
                     contact.UserId = userId;
+                    contactList.Add(contact);
 
                 }
             }
-            return contact;
+            return contactList;
         }
     }
 }

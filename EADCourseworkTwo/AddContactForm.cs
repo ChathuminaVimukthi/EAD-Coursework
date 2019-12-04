@@ -67,14 +67,11 @@ namespace EADCourseworkTwo
 
         private void addMoreButton_Click(object sender, EventArgs e)
         {
-            /*AddContact addContact = new AddContact();
+            AddContact addContact = new AddContact();
             addContact.saveContact.Click += SaveButton_Click;
             tableLayoutPanel3.Controls.Add(addContact, 0, 1);
 
-            addMoreButton.Dispose();*/
-            ContactModel addContact = new ContactModel();
-            Contact contact = addContact.getContact(loggedinUser.UserId);
-            MessageBox.Show(contact.ContactName);
+            addMoreButton.Dispose();
         }
 
         private void showAddForm()
