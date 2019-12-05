@@ -172,10 +172,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button saveContact;
-        private System.Windows.Forms.TextBox contactNameTxtBox;
-        private System.Windows.Forms.TextBox numberTxtBox;
-        private System.Windows.Forms.TextBox emailTxtBox;
         private AppointmentsDataSet appointmentsDataSet1;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        public System.Windows.Forms.TextBox contactNameTxtBox;
+        public System.Windows.Forms.TextBox numberTxtBox;
+        public System.Windows.Forms.TextBox emailTxtBox;
     }
 }

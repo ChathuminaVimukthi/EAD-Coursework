@@ -107,6 +107,16 @@ namespace EADCourseworkTwo.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap contacts_book {
+            get {
+                object obj = ResourceManager.GetObject("contacts_book", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string loginButton {
@@ -149,6 +159,15 @@ namespace EADCourseworkTwo.Properties {
         internal static string passwordLabel {
             get {
                 return ResourceManager.GetString("passwordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Contacts.
+        /// </summary>
+        internal static string viewContactButton {
+            get {
+                return ResourceManager.GetString("viewContactButton", resourceCulture);
             }
         }
         

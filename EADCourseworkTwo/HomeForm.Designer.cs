@@ -32,11 +32,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel43 = new System.Windows.Forms.Panel();
-            this.addContactBtn = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.addEventBtn = new System.Windows.Forms.Button();
+            this.addContactBtn = new System.Windows.Forms.Button();
+            this.viewContactBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel43.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -97,33 +100,71 @@
             // panel43
             // 
             this.panel43.BackColor = System.Drawing.Color.SlateGray;
-            this.panel43.Controls.Add(this.addEventBtn);
-            this.panel43.Controls.Add(this.addContactBtn);
+            this.panel43.Controls.Add(this.tableLayoutPanel4);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel43.Location = new System.Drawing.Point(3, 3);
             this.panel43.Name = "panel43";
             this.panel43.Size = new System.Drawing.Size(234, 444);
             this.panel43.TabIndex = 1;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Controls.Add(this.addEventBtn, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.addContactBtn, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.viewContactBtn, 0, 2);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 8;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(234, 444);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // addEventBtn
+            // 
+            this.addEventBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addEventBtn.Location = new System.Drawing.Point(3, 58);
+            this.addEventBtn.MaximumSize = new System.Drawing.Size(228, 49);
+            this.addEventBtn.Name = "addEventBtn";
+            this.addEventBtn.Size = new System.Drawing.Size(228, 49);
+            this.addEventBtn.TabIndex = 1;
+            this.addEventBtn.Text = "addEvent";
+            this.addEventBtn.UseVisualStyleBackColor = true;
+            this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
+            // 
             // addContactBtn
             // 
-            this.addContactBtn.Location = new System.Drawing.Point(12, 50);
+            this.addContactBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addContactBtn.Location = new System.Drawing.Point(3, 3);
+            this.addContactBtn.MaximumSize = new System.Drawing.Size(228, 49);
             this.addContactBtn.Name = "addContactBtn";
-            this.addContactBtn.Size = new System.Drawing.Size(210, 36);
+            this.addContactBtn.Size = new System.Drawing.Size(228, 49);
             this.addContactBtn.TabIndex = 0;
             this.addContactBtn.Text = "addContact";
             this.addContactBtn.UseVisualStyleBackColor = true;
             this.addContactBtn.Click += new System.EventHandler(this.addContactBtn_Click);
             // 
-            // addEventBtn
+            // viewContactBtn
             // 
-            this.addEventBtn.Location = new System.Drawing.Point(12, 110);
-            this.addEventBtn.Name = "addEventBtn";
-            this.addEventBtn.Size = new System.Drawing.Size(210, 37);
-            this.addEventBtn.TabIndex = 1;
-            this.addEventBtn.Text = "addEvent";
-            this.addEventBtn.UseVisualStyleBackColor = true;
-            this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
+            this.viewContactBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewContactBtn.Location = new System.Drawing.Point(3, 113);
+            this.viewContactBtn.MaximumSize = new System.Drawing.Size(228, 49);
+            this.viewContactBtn.Name = "viewContactBtn";
+            this.viewContactBtn.Size = new System.Drawing.Size(228, 49);
+            this.viewContactBtn.TabIndex = 2;
+            this.viewContactBtn.Text = "viewContacts";
+            this.viewContactBtn.UseVisualStyleBackColor = true;
+            this.viewContactBtn.Click += new System.EventHandler(this.viewContactBtn_Click);
             // 
             // HomeForm
             // 
@@ -136,6 +177,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel43.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -148,5 +190,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button addEventBtn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button viewContactBtn;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EADCourseworkTwo.model
 {
-    class Event
+    public class Event
     {
         private int eventId;
         private string eventTitle;
@@ -14,8 +14,10 @@ namespace EADCourseworkTwo.model
         private DateTime startingDateTime;
         private DateTime endingDateTime;
         private IList<Contact> contactList;
+        private string location;
         private int eventFlag;
         private int recurringFlag;
+        private int recurringId;
         private int userId;
 
         public string EventTitle { get => eventTitle; set => eventTitle = value; }
@@ -26,6 +28,8 @@ namespace EADCourseworkTwo.model
         public int RecurringFlag { get => recurringFlag; set => recurringFlag = value; }
         public int EventId { get => eventId; set => eventId = value; }
         public int UserId { get => userId; set => userId = value; }
+        public string Location { get => location; set => location = value; }
+        public int RecurringId { get => recurringId; set => recurringId = value; }
         internal IList<Contact> ContactList { get => contactList; set => contactList = value; }
     }
 }

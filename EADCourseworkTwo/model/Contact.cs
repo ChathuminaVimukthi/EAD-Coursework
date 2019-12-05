@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EADCourseworkTwo.model
 {
-    class Contact
+    public class Contact
     {
         private int id;
         private string contactName;

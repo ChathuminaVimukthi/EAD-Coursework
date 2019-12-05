@@ -20,6 +20,10 @@ namespace EADCourseworkTwo
 
         public string ContactName
         {
+            set
+            {
+                this.contactNameTxtBox.Text = value;
+            }
             get
             {
                 return this.contactNameTxtBox.Text;
@@ -28,6 +32,10 @@ namespace EADCourseworkTwo
 
          public int ContactNumber
         {
+            set
+            {
+                this.numberTxtBox.Text = value.ToString();
+            }
             get
             {
                 if (validatecontactNumber(this.numberTxtBox.Text.ToString()))
@@ -51,6 +59,10 @@ namespace EADCourseworkTwo
 
         public string Email
         {
+            set
+            {
+                this.emailTxtBox.Text = value;
+            }
             get
             {
                 if (validateEmail(this.emailTxtBox.Text))

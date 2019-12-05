@@ -14,6 +14,7 @@ namespace EADCourseworkTwo
     public partial class AddEventForm : Form
     {
         User loggedInUser;
+        int recurringAmount = 0;
         public AddEventForm(User user)
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace EADCourseworkTwo
         private void tableLayoutPane2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
-        }
+        } 
 
         private void populateCheckedList()
         {
@@ -46,28 +47,26 @@ namespace EADCourseworkTwo
 
         private void addEventBtn_Click(object sender, EventArgs e)
         {
-            //recurring: 1 = Daily, 2 = Monthly, 3 = Yearly, 4 = One-Off
+            //recurring: 1 = Daily, 2 = Monthly, 3 = One-Off
             //eventType: 1 = Task, 2 = Appointment
             string title = this.eventTitleTxtBox.Text;
+            string location = this.locationTextBox.Text;
             string description = this.descriptionTxtBox.Text;
             string startingTime = this.startTimePicker.Value.ToString("HH:mm");
             string startingDate = this.startDatePicker.Value.ToString("yyyy-MM-dd");
             string endingTime = this.endTimePicker.Value.ToString("HH:mm");
             string endingDate = this.endDatePicker.Value.ToString("yyyy-MM-dd");
             IList<Contact> contactList = new List<Contact>();
-            int recurring = 4;
+            int recurring = 0;
             if (dailyRadioBtn.Checked)
             {
                 recurring = 1;
             }else if (monthlyRadioBtn.Checked)
             {
                 recurring = 2;
-            }else if (yearlyRadioBtn.Checked)
-            {
-                recurring = 3;
             }else if (oneOffRadioBtn.Checked)
             {
-                recurring = 4;
+                recurring = 3;
             }
 
             int eventType = 0;
@@ -92,29 +91,95 @@ namespace EADCourseworkTwo
             if(validations()) 
             {
                 Boolean isTimeNotInRange = validateEnteredDate(startingDateTime,endingDateTime);
+                recurringAmount = Convert.ToInt32(this.numericUpDown1.Value);
 
                 if (isTimeNotInRange)
                 {
-                    Event evnt = new Event();
-                    evnt.EventTitle = title;
-                    evnt.EventDescription = description;
-                    evnt.StartingDateTime = startingDateTime;
-                    evnt.EndingDateTime = endingDateTime;
-                    evnt.EventFlag = eventType;
-                    evnt.RecurringFlag = recurring;
-                    evnt.UserId = loggedInUser.UserId;
-                    evnt.ContactList = contactList;
-
                     EventModel eventModel = new EventModel();
-                    Boolean addedEvent = eventModel.addEvent(evnt);
-                    Boolean addedContactList = eventModel.addContactsSelected(evnt);
-                    if (addedEvent && addedContactList)
+                    if (recurring == 1)
                     {
-                        MessageBox.Show("Event Saved Successfully!");
+                        Boolean validate = false;
+                        Boolean validate1 = false;
+                        int recId = eventModel.getEventId() + 1;
+                        for (int x = 0; x < recurringAmount; x++)
+                        {
+                            Event evnt = new Event();
+                            evnt.EventTitle = title;
+                            evnt.EventDescription = description;
+                            evnt.StartingDateTime = startingDateTime.AddDays(x);
+                            evnt.EndingDateTime = endingDateTime.AddDays(x);
+                            evnt.EventFlag = eventType;
+                            evnt.RecurringFlag = recurring;
+                            evnt.Location = location;
+                            evnt.UserId = loggedInUser.UserId;
+                            evnt.RecurringId = recId;
+                            evnt.ContactList = contactList;
+                            validate = eventModel.addEvent(evnt);
+                            validate1 = eventModel.addContactsSelected(evnt);
+                        }
+                        if (validate && validate1)
+                        {
+                            MessageBox.Show("Event Saved Successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Database connection failed.Try again !");
+                        }
                     }
-                    else
+                    if(recurring == 2)
                     {
-                        MessageBox.Show("Database connection failed.Try again !");
+                        Boolean validate = false;
+                        Boolean validate1 = false;
+                        int recId = eventModel.getEventId() + 1;
+                        for (int x = 0; x < recurringAmount; x++)
+                        {
+                            Event evnt = new Event();
+                            evnt.EventTitle = title;
+                            evnt.EventDescription = description;
+                            evnt.StartingDateTime = startingDateTime.AddDays(x);
+                            evnt.EndingDateTime = endingDateTime.AddDays(x);
+                            evnt.EventFlag = eventType;
+                            evnt.RecurringFlag = recurring;
+                            evnt.Location = location;
+                            evnt.UserId = loggedInUser.UserId;
+                            evnt.RecurringId = recId;
+                            evnt.ContactList = contactList;
+                            validate = eventModel.addEvent(evnt);
+                            validate1 = eventModel.addContactsSelected(evnt);
+                        }
+                        if (validate && validate1)
+                        {
+                            MessageBox.Show("Event Saved Successfully!");
+                        } 
+                        else
+                        {
+                            MessageBox.Show("Database connection failed.Try again !");
+                        }
+                    }
+                    if (recurring == 3)
+                    {
+                        Event evnt = new Event();
+                        evnt.EventTitle = title;
+                        evnt.EventDescription = description;
+                        evnt.StartingDateTime = startingDateTime;
+                        evnt.EndingDateTime = endingDateTime;
+                        evnt.EventFlag = eventType;
+                        evnt.RecurringFlag = recurring;
+                        evnt.Location = location;
+                        evnt.UserId = loggedInUser.UserId;
+                        evnt.ContactList = contactList;
+
+                        Boolean addedEvent = eventModel.addEvent(evnt);
+                        Boolean addedContactList = eventModel.addContactsSelected(evnt);
+
+                        if (addedEvent && addedContactList)
+                        {
+                            MessageBox.Show("Event Saved Successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Database connection failed.Try again !");
+                        }
                     }
                 }
             }
@@ -208,6 +273,15 @@ namespace EADCourseworkTwo
             {
                 errorProviderEvent.SetError(eventTitleTxtBox, "");
             }
+            if (string.IsNullOrWhiteSpace(locationTextBox.Text))
+            {
+                isOkay = false;
+                errorProviderEvent.SetError(locationTextBox, "Location should not be left blank!");
+            }
+            else
+            {
+                errorProviderEvent.SetError(locationTextBox, "");
+            }
             if (string.IsNullOrWhiteSpace(descriptionTxtBox.Text))
             {
                 isOkay = false;
@@ -235,7 +309,7 @@ namespace EADCourseworkTwo
             {
                 errorProviderEvent.SetError(checkedListBox1, "");
             }
-            if (!monthlyRadioBtn.Checked && !dailyRadioBtn.Checked && !yearlyRadioBtn.Checked && !oneOffRadioBtn.Checked)
+            if (!monthlyRadioBtn.Checked && !dailyRadioBtn.Checked && !oneOffRadioBtn.Checked)
             {
                 isOkay = false;
                 errorProviderEvent.SetError(tableLayoutPanel3, "Select atleast one option!");
@@ -254,6 +328,24 @@ namespace EADCourseworkTwo
                 errorProviderEvent.SetError(tableLayoutPanel4, "");
             }
             return isOkay;
+        }
+
+        private void dailyRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Enabled = true;
+            recurringAmount =  Convert.ToInt32(this.numericUpDown1.Value);
+        }
+
+        private void oneOffRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Enabled = false;
+            recurringAmount = 0;
+        }
+
+        private void monthlyRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Enabled = true;
+            recurringAmount = Convert.ToInt32(this.numericUpDown1.Value);
         }
     }
 }

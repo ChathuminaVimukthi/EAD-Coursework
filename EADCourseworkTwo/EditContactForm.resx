@@ -117,44 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addContactBtn" xml:space="preserve">
-    <value>Add Contact</value>
-  </data>
-  <data name="addEventBtn" xml:space="preserve">
-    <value>Add Event</value>
-  </data>
-  <data name="addressLabel" xml:space="preserve">
-    <value>Address</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="backgroundLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backgroundLogin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="confirmPassLabel" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="contacts_book" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\contacts-book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginButton" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\appointment (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="nameLabel" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="newUserButton" xml:space="preserve">
-    <value>New User?</value>
-  </data>
-  <data name="passwordLabel" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="viewContactButton" xml:space="preserve">
-    <value>View Contacts</value>
-  </data>
-  <data name="viewEventsBtn" xml:space="preserve">
-    <value>View Events</value>
-  </data>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -22,9 +22,9 @@ namespace EADCourseworkTwo.model
         //Add Event to DB
         public Boolean addEvent(Event evnt)
         {
-            string queryStringEvent = "INSERT INTO Event (Title, Description, StartingTime, EndingTime, EventFlag, RecurringFlag, UserId) " +
-                                     "Values (@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
-            using (sqlConnection = new SqlConnection(connectionString))
+            string queryStringEvent = "INSERT INTO Event (Title, Description, StartingTime, EndingTime, EventFlag, RecurringFlag, Location, UserId, RecurringId) " +
+                                     "Values (@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9)";
+            using (sqlConnection = new SqlConnection(connectionString)) 
             {
                 sqlConnection.Open();
                 SqlTransaction transaction = sqlConnection.BeginTransaction();
@@ -42,7 +42,9 @@ namespace EADCourseworkTwo.model
                     sqlCommand.Parameters.AddWithValue("@param4", evnt.EndingDateTime);
                     sqlCommand.Parameters.AddWithValue("@param5", evnt.EventFlag);
                     sqlCommand.Parameters.AddWithValue("@param6", evnt.RecurringFlag);
-                    sqlCommand.Parameters.AddWithValue("@param7", evnt.UserId);
+                    sqlCommand.Parameters.AddWithValue("@param7", evnt.Location);
+                    sqlCommand.Parameters.AddWithValue("@param8", evnt.UserId);
+                    sqlCommand.Parameters.AddWithValue("@param9", evnt.RecurringId);
 
                     int rowsAdded = sqlCommand.ExecuteNonQuery();
 
@@ -71,7 +73,7 @@ namespace EADCourseworkTwo.model
             int evId = getEventId();
             
             string queryStringSelectedContacts = "INSERT INTO ContactsSelected (ContactId, EventId) " +
-                                     "Values (@param8, @param9)";
+                                     "Values (@param10, @param11)";
 
             using (sqlConnection = new SqlConnection(connectionString))
             {
@@ -88,8 +90,8 @@ namespace EADCourseworkTwo.model
                             Connection = sqlConnection
                         };
 
-                        sqlCommand.Parameters.AddWithValue("@param8", contact.Id);
-                        sqlCommand.Parameters.AddWithValue("@param9", evId);
+                        sqlCommand.Parameters.AddWithValue("@param10", contact.Id);
+                        sqlCommand.Parameters.AddWithValue("@param11", evId);
 
                         rowsAdded += sqlCommand.ExecuteNonQuery();
                     }
@@ -136,10 +138,10 @@ namespace EADCourseworkTwo.model
         }
 
         //Get all events
-        public IList<Event> getAllEventDetails(int userId,DateTime startingTime,DateTime endingTime)
+        public IList<Event> getAllEventDetails(int userId, DateTime startingTime, DateTime endingTime)
         {
             IList<Event> evntList = new List<Event>();
-            string queryString = "SELECT * FROM Event WHERE UserId='"+userId+"'";
+            string queryString = "SELECT * FROM Event WHERE UserId='" + userId + "'";
 
             using (sqlConnection = new SqlConnection(connectionString))
             using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
@@ -157,13 +159,51 @@ namespace EADCourseworkTwo.model
                     evnt.EndingDateTime = Convert.ToDateTime(row["EndingTime"]);
                     evnt.EventFlag = Convert.ToInt32(row["EventFlag"]);
                     evnt.RecurringFlag = Convert.ToInt32(row["RecurringFlag"]);
+                    evnt.Location = row["Location"].ToString();
                     evnt.UserId = Convert.ToInt32(row["UserId"]);
+                    evnt.RecurringId = Convert.ToInt32(row["RecurringId"]);
                     evntList.Add(evnt);
                 }
 
                 return evntList;
             }
         }
-       
+
+        //Delete Event
+        public Boolean deleteEvent(int eventId)
+        {
+            string queryStringEvent = "DELETE FROM Event WHERE Id = '" + eventId + "'";
+            using (sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlTransaction transaction = sqlConnection.BeginTransaction();
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryStringEvent, sqlConnection, transaction)
+                    {
+                        CommandType = CommandType.Text,
+                        Connection = sqlConnection
+                    };
+
+                    int rowsAdded = sqlCommand.ExecuteNonQuery();
+
+                    transaction.Commit();
+
+                    if (rowsAdded > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return false;
+                }
+            }
+        }
     }
 }
