@@ -1,0 +1,43 @@
+﻿CREATE TABLE [dbo].[Users]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [UserName] VARCHAR(50) NOT NULL, 
+    [Password] VARCHAR(50) NOT NULL, 
+    [FirstName] VARCHAR(50) NOT NULL, 
+    [LastName] VARCHAR(50) NOT NULL, 
+    [Email] VARCHAR(50) NOT NULL
+)
+
+
+CREATE TABLE [dbo].[Contact]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [ContactName] NVARCHAR(50) NOT NULL, 
+    [ContactNumber] INT NOT NULL, 
+    [Email] NVARCHAR(50) NOT NULL, 
+    [UserId] INT NOT NULL, 
+    CONSTRAINT [FK_Contact_ToTable] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id])
+)
+
+CREATE TABLE [dbo].[Event]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Title] VARCHAR(MAX) NOT NULL, 
+    [Description] VARCHAR(MAX) NOT NULL, 
+    [StartingTime] DATETIME NOT NULL, 
+    [EndingTime] DATETIME NOT NULL, 
+    [EventFlag] INT NOT NULL, 
+    [RecurringFlag] INT NOT NULL, 
+    [UserId] INT NOT NULL, 
+    CONSTRAINT [FK_Event_ToTable] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id]),
+)
+
+CREATE TABLE [dbo].[ContactsSelected] (
+    [Id]        INT IDENTITY (1, 1) NOT NULL,
+    [ContactId] INT NOT NULL,
+    [EventId]    INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Table_ToTable] FOREIGN KEY ([ContactId]) REFERENCES [dbo].[Contact] ([Id]),
+    CONSTRAINT [FK_Table_ToTable_1] FOREIGN KEY ([EventId]) REFERENCES [dbo].[Event] ([Id])
+);
+
