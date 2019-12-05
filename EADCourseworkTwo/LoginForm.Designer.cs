@@ -33,11 +33,11 @@
             this.loginPicBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.nameTxtBox = new System.Windows.Forms.TextBox();
-            this.passwordTxtBox = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.passwordTxtBox = new System.Windows.Forms.TextBox();
+            this.nameTxtBox = new System.Windows.Forms.TextBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPicBox)).BeginInit();
@@ -113,16 +113,33 @@
             this.panel2.Size = new System.Drawing.Size(388, 260);
             this.panel2.TabIndex = 0;
             // 
-            // nameLabel
+            // loginBtn
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.ForeColor = System.Drawing.Color.White;
-            this.nameLabel.Location = new System.Drawing.Point(55, 21);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(104, 24);
-            this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "nameLabel";
+            this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.Location = new System.Drawing.Point(255, 125);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(75, 34);
+            this.loginBtn.TabIndex = 4;
+            this.loginBtn.Text = "loginBtn";
+            this.loginBtn.UseVisualStyleBackColor = true;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
+            // passwordTxtBox
+            // 
+            this.passwordTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTxtBox.Location = new System.Drawing.Point(194, 61);
+            this.passwordTxtBox.Name = "passwordTxtBox";
+            this.passwordTxtBox.PasswordChar = '*';
+            this.passwordTxtBox.Size = new System.Drawing.Size(137, 26);
+            this.passwordTxtBox.TabIndex = 3;
+            // 
+            // nameTxtBox
+            // 
+            this.nameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTxtBox.Location = new System.Drawing.Point(194, 21);
+            this.nameTxtBox.Name = "nameTxtBox";
+            this.nameTxtBox.Size = new System.Drawing.Size(137, 26);
+            this.nameTxtBox.TabIndex = 2;
             // 
             // passwordLabel
             // 
@@ -135,42 +152,26 @@
             this.passwordLabel.TabIndex = 1;
             this.passwordLabel.Text = "passwordLabel";
             // 
-            // nameTxtBox
+            // nameLabel
             // 
-            this.nameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTxtBox.Location = new System.Drawing.Point(194, 21);
-            this.nameTxtBox.Name = "nameTxtBox";
-            this.nameTxtBox.Size = new System.Drawing.Size(137, 26);
-            this.nameTxtBox.TabIndex = 2;
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.ForeColor = System.Drawing.Color.White;
+            this.nameLabel.Location = new System.Drawing.Point(55, 21);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(104, 24);
+            this.nameLabel.TabIndex = 0;
+            this.nameLabel.Text = "nameLabel";
             // 
-            // passwordTxtBox
-            // 
-            this.passwordTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTxtBox.Location = new System.Drawing.Point(194, 61);
-            this.passwordTxtBox.Name = "passwordTxtBox";
-            this.passwordTxtBox.PasswordChar = '*';
-            this.passwordTxtBox.Size = new System.Drawing.Size(137, 26);
-            this.passwordTxtBox.TabIndex = 3;
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.Location = new System.Drawing.Point(255, 125);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(75, 34);
-            this.loginBtn.TabIndex = 4;
-            this.loginBtn.Text = "loginBtn";
-            this.loginBtn.UseVisualStyleBackColor = true;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
-            // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "LoginForm";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

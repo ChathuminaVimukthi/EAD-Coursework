@@ -85,7 +85,7 @@ namespace EADCourseworkTwo.model
             
         }
 
-        //Get contacts
+        //Get all contacts
         public IList<Contact> getContact(int userId)
         {
             IList<Contact> contactList = new List<Contact>();
@@ -108,12 +108,38 @@ namespace EADCourseworkTwo.model
                     contact.Id = id;
                     contact.ContactName = contactName;
                     contact.ContactNumber = contactNumber;
+                    contact.Email = email;
                     contact.UserId = userId;
                     contactList.Add(contact);
 
                 }
             }
             return contactList;
+        }
+
+        //Get contact
+        public Contact getContactUsingContactName(string contactName)
+        {
+            Console.WriteLine(contactName + "cm");
+            Contact contact = new Contact();
+            string queryString = "SELECT * FROM Contact WHERE ContactName= '" + contactName + "'";
+            using (sqlConnection = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
+            {
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    contact.Id = Convert.ToInt32(row["Id"]);
+                    contact.ContactName = row["ContactName"].ToString();
+                    contact.ContactNumber = Convert.ToInt32(row["ContactNumber"]);
+                    contact.Email = row["Email"].ToString();
+                    contact.UserId = Convert.ToInt32(row["UserId"]);
+                }
+
+                return contact;
+            }
         }
     }
 }

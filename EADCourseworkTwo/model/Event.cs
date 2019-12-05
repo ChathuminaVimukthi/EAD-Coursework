@@ -8,6 +8,7 @@ namespace EADCourseworkTwo.model
 {
     class Event
     {
+        private int eventId;
         private string eventTitle;
         private string eventDescription;
         private DateTime startingDateTime;
@@ -15,6 +16,7 @@ namespace EADCourseworkTwo.model
         private IList<Contact> contactList;
         private int eventFlag;
         private int recurringFlag;
+        private int userId;
 
         public string EventTitle { get => eventTitle; set => eventTitle = value; }
         public string EventDescription { get => eventDescription; set => eventDescription = value; }
@@ -22,6 +24,8 @@ namespace EADCourseworkTwo.model
         public DateTime EndingDateTime { get => endingDateTime; set => endingDateTime = value; }
         public int EventFlag { get => eventFlag; set => eventFlag = value; }
         public int RecurringFlag { get => recurringFlag; set => recurringFlag = value; }
+        public int EventId { get => eventId; set => eventId = value; }
+        public int UserId { get => userId; set => userId = value; }
         internal IList<Contact> ContactList { get => contactList; set => contactList = value; }
     }
 }

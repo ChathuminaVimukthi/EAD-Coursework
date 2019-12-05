@@ -33,6 +33,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel43 = new System.Windows.Forms.Panel();
             this.addContactBtn = new System.Windows.Forms.Button();
+            this.addEventBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel43.SuspendLayout();
@@ -96,6 +97,7 @@
             // panel43
             // 
             this.panel43.BackColor = System.Drawing.Color.SlateGray;
+            this.panel43.Controls.Add(this.addEventBtn);
             this.panel43.Controls.Add(this.addContactBtn);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel43.Location = new System.Drawing.Point(3, 3);
@@ -112,6 +114,16 @@
             this.addContactBtn.Text = "addContact";
             this.addContactBtn.UseVisualStyleBackColor = true;
             this.addContactBtn.Click += new System.EventHandler(this.addContactBtn_Click);
+            // 
+            // addEventBtn
+            // 
+            this.addEventBtn.Location = new System.Drawing.Point(12, 110);
+            this.addEventBtn.Name = "addEventBtn";
+            this.addEventBtn.Size = new System.Drawing.Size(210, 37);
+            this.addEventBtn.TabIndex = 1;
+            this.addEventBtn.Text = "addEvent";
+            this.addEventBtn.UseVisualStyleBackColor = true;
+            this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
             // 
             // HomeForm
             // 
@@ -135,5 +147,6 @@
         private System.Windows.Forms.Button addContactBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button addEventBtn;
     }
 }

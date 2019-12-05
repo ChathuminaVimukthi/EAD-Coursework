@@ -19,6 +19,7 @@ namespace EADCourseworkTwo
             InitializeComponent();
             logedInUser = user;
             this.addContactBtn.Text = Properties.Resources.addContactBtn;
+            this.addEventBtn.Text = Properties.Resources.addEventBtn;
             populateTableLayout(user);
         }
 
@@ -95,8 +96,14 @@ namespace EADCourseworkTwo
 
         private void addContactBtn_Click(object sender, EventArgs e)
         {
-             AddContactForm addContactForm = new AddContactForm(logedInUser);
+            AddContactForm addContactForm = new AddContactForm(logedInUser);
             addContactForm.Show();
+        }
+
+        private void addEventBtn_Click(object sender, EventArgs e)
+        {
+            AddEventForm addEventForm = new AddEventForm(logedInUser);
+            addEventForm.Show();
         }
     }
 }
