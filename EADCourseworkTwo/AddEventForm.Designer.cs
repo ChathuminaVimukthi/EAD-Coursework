@@ -46,10 +46,12 @@
             this.dailyRadioBtn = new System.Windows.Forms.RadioButton();
             this.monthlyRadioBtn = new System.Windows.Forms.RadioButton();
             this.oneOffRadioBtn = new System.Windows.Forms.RadioButton();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.appointmentRadBtn = new System.Windows.Forms.RadioButton();
             this.tastRadBtn = new System.Windows.Forms.RadioButton();
-            this.addEventBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -60,25 +62,24 @@
             this.endTimePicker = new System.Windows.Forms.DateTimePicker();
             this.endDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.errorProviderEvent = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.addEventBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.locationTextBox = new System.Windows.Forms.TextBox();
+            this.errorProviderEvent = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEvent)).BeginInit();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(172)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
@@ -95,7 +96,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -104,6 +105,7 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(172)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -127,7 +129,7 @@
             this.tableLayoutPanel2.Controls.Add(this.locationTextBox, 1, 7);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(240, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 9;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
@@ -149,7 +151,7 @@
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 55);
+            this.label1.Size = new System.Drawing.Size(162, 56);
             this.label1.TabIndex = 0;
             this.label1.Text = "Event Title";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,10 +160,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 64);
+            this.label2.Location = new System.Drawing.Point(3, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 55);
+            this.label2.Size = new System.Drawing.Size(162, 56);
             this.label2.TabIndex = 1;
             this.label2.Text = "Event Description";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -170,10 +172,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 125);
+            this.label3.Location = new System.Drawing.Point(3, 127);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 55);
+            this.label3.Size = new System.Drawing.Size(162, 56);
             this.label3.TabIndex = 2;
             this.label3.Text = "Starting Time and Date";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,10 +184,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 186);
+            this.label4.Location = new System.Drawing.Point(3, 189);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 55);
+            this.label4.Size = new System.Drawing.Size(162, 56);
             this.label4.TabIndex = 3;
             this.label4.Text = "Ending Time and Date";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,10 +196,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 247);
+            this.label5.Location = new System.Drawing.Point(3, 251);
             this.label5.Margin = new System.Windows.Forms.Padding(3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 55);
+            this.label5.Size = new System.Drawing.Size(162, 56);
             this.label5.TabIndex = 4;
             this.label5.Text = "Select Contacts";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,10 +208,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(3, 308);
+            this.label6.Location = new System.Drawing.Point(3, 313);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 55);
+            this.label6.Size = new System.Drawing.Size(162, 56);
             this.label6.TabIndex = 5;
             this.label6.Text = "Select Recurrence";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,10 +220,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(3, 369);
+            this.label7.Location = new System.Drawing.Point(3, 375);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(162, 55);
+            this.label7.Size = new System.Drawing.Size(162, 56);
             this.label7.TabIndex = 6;
             this.label7.Text = "Event Type";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -230,9 +232,9 @@
             // 
             this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(171, 247);
+            this.checkedListBox1.Location = new System.Drawing.Point(171, 251);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(330, 55);
+            this.checkedListBox1.Size = new System.Drawing.Size(330, 56);
             this.checkedListBox1.TabIndex = 7;
             // 
             // eventTitleTxtBox
@@ -240,16 +242,16 @@
             this.eventTitleTxtBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventTitleTxtBox.Location = new System.Drawing.Point(171, 3);
             this.eventTitleTxtBox.Name = "eventTitleTxtBox";
-            this.eventTitleTxtBox.Size = new System.Drawing.Size(330, 55);
+            this.eventTitleTxtBox.Size = new System.Drawing.Size(330, 56);
             this.eventTitleTxtBox.TabIndex = 8;
             this.eventTitleTxtBox.Text = "";
             // 
             // descriptionTxtBox
             // 
             this.descriptionTxtBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.descriptionTxtBox.Location = new System.Drawing.Point(171, 64);
+            this.descriptionTxtBox.Location = new System.Drawing.Point(171, 65);
             this.descriptionTxtBox.Name = "descriptionTxtBox";
-            this.descriptionTxtBox.Size = new System.Drawing.Size(330, 55);
+            this.descriptionTxtBox.Size = new System.Drawing.Size(330, 56);
             this.descriptionTxtBox.TabIndex = 9;
             this.descriptionTxtBox.Text = "";
             // 
@@ -265,11 +267,11 @@
             this.tableLayoutPanel3.Controls.Add(this.oneOffRadioBtn, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(171, 308);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(171, 313);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(330, 55);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(330, 56);
             this.tableLayoutPanel3.TabIndex = 12;
             // 
             // dailyRadioBtn
@@ -278,7 +280,7 @@
             this.dailyRadioBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dailyRadioBtn.Location = new System.Drawing.Point(3, 3);
             this.dailyRadioBtn.Name = "dailyRadioBtn";
-            this.dailyRadioBtn.Size = new System.Drawing.Size(76, 49);
+            this.dailyRadioBtn.Size = new System.Drawing.Size(76, 50);
             this.dailyRadioBtn.TabIndex = 0;
             this.dailyRadioBtn.TabStop = true;
             this.dailyRadioBtn.Text = "Daily";
@@ -291,7 +293,7 @@
             this.monthlyRadioBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.monthlyRadioBtn.Location = new System.Drawing.Point(85, 3);
             this.monthlyRadioBtn.Name = "monthlyRadioBtn";
-            this.monthlyRadioBtn.Size = new System.Drawing.Size(76, 49);
+            this.monthlyRadioBtn.Size = new System.Drawing.Size(76, 50);
             this.monthlyRadioBtn.TabIndex = 1;
             this.monthlyRadioBtn.TabStop = true;
             this.monthlyRadioBtn.Text = "Monthly";
@@ -304,12 +306,60 @@
             this.oneOffRadioBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.oneOffRadioBtn.Location = new System.Drawing.Point(167, 3);
             this.oneOffRadioBtn.Name = "oneOffRadioBtn";
-            this.oneOffRadioBtn.Size = new System.Drawing.Size(76, 49);
+            this.oneOffRadioBtn.Size = new System.Drawing.Size(76, 50);
             this.oneOffRadioBtn.TabIndex = 3;
             this.oneOffRadioBtn.TabStop = true;
             this.oneOffRadioBtn.Text = "One-Off";
             this.oneOffRadioBtn.UseVisualStyleBackColor = true;
             this.oneOffRadioBtn.CheckedChanged += new System.EventHandler(this.oneOffRadioBtn_CheckedChanged);
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.numericUpDown1, 0, 1);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(249, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(78, 49);
+            this.tableLayoutPanel7.TabIndex = 4;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 24);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Amount";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 27);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
+            this.numericUpDown1.TabIndex = 1;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // tableLayoutPanel4
             // 
@@ -321,11 +371,11 @@
             this.tableLayoutPanel4.Controls.Add(this.appointmentRadBtn, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tastRadBtn, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(171, 369);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(171, 375);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(330, 55);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(330, 56);
             this.tableLayoutPanel4.TabIndex = 13;
             // 
             // appointmentRadBtn
@@ -334,7 +384,7 @@
             this.appointmentRadBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appointmentRadBtn.Location = new System.Drawing.Point(3, 3);
             this.appointmentRadBtn.Name = "appointmentRadBtn";
-            this.appointmentRadBtn.Size = new System.Drawing.Size(159, 49);
+            this.appointmentRadBtn.Size = new System.Drawing.Size(159, 50);
             this.appointmentRadBtn.TabIndex = 0;
             this.appointmentRadBtn.TabStop = true;
             this.appointmentRadBtn.Text = "Appointment";
@@ -346,22 +396,11 @@
             this.tastRadBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tastRadBtn.Location = new System.Drawing.Point(168, 3);
             this.tastRadBtn.Name = "tastRadBtn";
-            this.tastRadBtn.Size = new System.Drawing.Size(159, 49);
+            this.tastRadBtn.Size = new System.Drawing.Size(159, 50);
             this.tastRadBtn.TabIndex = 1;
             this.tastRadBtn.TabStop = true;
             this.tastRadBtn.Text = "Task";
             this.tastRadBtn.UseVisualStyleBackColor = true;
-            // 
-            // addEventBtn
-            // 
-            this.addEventBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addEventBtn.Location = new System.Drawing.Point(3, 491);
-            this.addEventBtn.Name = "addEventBtn";
-            this.addEventBtn.Size = new System.Drawing.Size(162, 64);
-            this.addEventBtn.TabIndex = 14;
-            this.addEventBtn.Text = "Add Event";
-            this.addEventBtn.UseVisualStyleBackColor = true;
-            this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -373,13 +412,13 @@
             this.tableLayoutPanel5.Controls.Add(this.startTimePicker, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.startDatePicker, 1, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(171, 125);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(171, 127);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(330, 55);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(330, 56);
             this.tableLayoutPanel5.TabIndex = 15;
             // 
             // label8
@@ -432,12 +471,12 @@
             this.tableLayoutPanel6.Controls.Add(this.endDatePicker, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.label11, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(171, 186);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(171, 189);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(330, 55);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(330, 56);
             this.tableLayoutPanel6.TabIndex = 16;
             // 
             // label10
@@ -481,67 +520,25 @@
             this.label11.Text = "Date";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // errorProviderEvent
+            // addEventBtn
             // 
-            this.errorProviderEvent.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProviderEvent.ContainerControl = this;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Controls.Add(this.label12, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.numericUpDown1, 0, 1);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(249, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(78, 49);
-            this.tableLayoutPanel7.TabIndex = 4;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 24);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Amount";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 27);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.addEventBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addEventBtn.Location = new System.Drawing.Point(3, 499);
+            this.addEventBtn.Name = "addEventBtn";
+            this.addEventBtn.Size = new System.Drawing.Size(162, 56);
+            this.addEventBtn.TabIndex = 14;
+            this.addEventBtn.Text = "Add Event";
+            this.addEventBtn.UseVisualStyleBackColor = true;
+            this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(3, 430);
+            this.label13.Location = new System.Drawing.Point(3, 437);
             this.label13.Margin = new System.Windows.Forms.Padding(3);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(162, 55);
+            this.label13.Size = new System.Drawing.Size(162, 56);
             this.label13.TabIndex = 17;
             this.label13.Text = "Event Location";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -549,11 +546,16 @@
             // locationTextBox
             // 
             this.locationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.locationTextBox.Location = new System.Drawing.Point(171, 447);
+            this.locationTextBox.Location = new System.Drawing.Point(171, 454);
             this.locationTextBox.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.locationTextBox.Name = "locationTextBox";
             this.locationTextBox.Size = new System.Drawing.Size(330, 20);
             this.locationTextBox.TabIndex = 18;
+            // 
+            // errorProviderEvent
+            // 
+            this.errorProviderEvent.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderEvent.ContainerControl = this;
             // 
             // AddEventForm
             // 
@@ -568,6 +570,9 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -575,9 +580,6 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEvent)).EndInit();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }

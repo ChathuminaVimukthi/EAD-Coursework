@@ -21,6 +21,7 @@ namespace EADCourseworkTwo
             this.addContactBtn.Text = Properties.Resources.addContactBtn;
             this.addEventBtn.Text = Properties.Resources.addEventBtn;
             this.viewContactBtn.Text = Properties.Resources.viewContactButton;
+            this.viewEventBtn.Text = Properties.Resources.viewEventsBtn;
             populateTableLayout(user);
         }
 
@@ -111,6 +112,12 @@ namespace EADCourseworkTwo
         {
             ViewContactListForm viewContactListForm = new ViewContactListForm(logedInUser);
             viewContactListForm.Show();
+        }
+
+        private void viewEventBtn_Click(object sender, EventArgs e)
+        {
+            ViewEventsForm viewEventsForm = new ViewEventsForm(logedInUser);
+            viewEventsForm.Show();
         }
     }
 }

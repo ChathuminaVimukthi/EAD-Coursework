@@ -120,7 +120,6 @@ namespace EADCourseworkTwo.model
         //Get contact using contact name
         public Contact getContactUsingContactName(string contactName)
         {
-            Console.WriteLine(contactName + "cm");
             Contact contact = new Contact();
             string queryString = "SELECT * FROM Contact WHERE ContactName= '" + contactName + "'";
             using (sqlConnection = new SqlConnection(connectionString))

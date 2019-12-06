@@ -16,7 +16,7 @@ namespace EADCourseworkTwo
         public ContactControl()
         {
             InitializeComponent();
-            this.pictureBox1.Image = Properties.Resources.contacts_book;
+            this.pictureBox1.Image = Properties.Resources.man;
         }
 
 

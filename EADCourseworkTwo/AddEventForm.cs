@@ -193,7 +193,7 @@ namespace EADCourseworkTwo
         private Boolean validateEnteredDate(DateTime startDateTime,DateTime endDateTime)
         {
             EventModel eventModel = new EventModel();
-            IList<Event> evntList = eventModel.getAllEventDetails(loggedInUser.UserId, startDateTime, endDateTime);
+            IList<Event> evntList = eventModel.getAllEventDetails(loggedInUser.UserId);
 
             Boolean startInRange = false;
             Boolean endInRange = false;
@@ -240,7 +240,6 @@ namespace EADCourseworkTwo
             }
 
         }
-
 
 
         private void startTimePicker_MouseDown(object sender, MouseEventArgs e)

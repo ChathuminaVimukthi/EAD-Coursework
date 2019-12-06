@@ -138,7 +138,7 @@ namespace EADCourseworkTwo.model
         }
 
         //Get all events
-        public IList<Event> getAllEventDetails(int userId, DateTime startingTime, DateTime endingTime)
+        public IList<Event> getAllEventDetails(int userId)
         {
             IList<Event> evntList = new List<Event>();
             string queryString = "SELECT * FROM Event WHERE UserId='" + userId + "'";

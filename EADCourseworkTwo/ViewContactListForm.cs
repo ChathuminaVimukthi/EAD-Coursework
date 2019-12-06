@@ -70,6 +70,7 @@ namespace EADCourseworkTwo
             foreach (Contact contact in contactList)
             {
                 ContactControl contactControl = new ContactControl();
+                contactControl.BackColor = ColorTranslator.FromHtml("#706fd3");
                 contactControl.contactNameLabel.Text = contact.ContactName;
                 contactControl.Id = contact.Id;
                 contactControl.contactNumberLabel.Text = contact.ContactNumber.ToString();

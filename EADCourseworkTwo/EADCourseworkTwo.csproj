@@ -97,6 +97,12 @@
     <Compile Include="EditContactForm.Designer.cs">
       <DependentUpon>EditContactForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EventControl.Designer.cs">
+      <DependentUpon>EventControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     <Compile Include="ViewContactListForm.Designer.cs">
       <DependentUpon>ViewContactListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEventsForm.Designer.cs">
+      <DependentUpon>ViewEventsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddContact.resx">
       <DependentUpon>AddContact.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditContactForm.resx">
       <DependentUpon>EditContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventControl.resx">
+      <DependentUpon>EventControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -156,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="ViewContactListForm.resx">
       <DependentUpon>ViewContactListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEventsForm.resx">
+      <DependentUpon>ViewEventsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AppointmentsDataSet.xsc">
       <DependentUpon>AppointmentsDataSet.xsd</DependentUpon>
@@ -199,6 +217,10 @@
       <DependentUpon>Appointments.mdf</DependentUpon>
     </Content>
     <Content Include="data\TableCreationQuery.txt" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\man.png" />
+    <None Include="Resources\asterisk %282%29.png" />
+    <None Include="Resources\asterisk.png" />
     <None Include="Resources\contacts-book.png" />
   </ItemGroup>
   <ItemGroup>
