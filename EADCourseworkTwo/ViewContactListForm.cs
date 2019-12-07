@@ -44,18 +44,25 @@ namespace EADCourseworkTwo
                 TableLayoutPanel tableLayoutPanel1 = (TableLayoutPanel)tableLayoutPanel.Parent;
                 ContactControl contactControl = (ContactControl)tableLayoutPanel1.Parent;
                 int id = contactControl.Id;
-                DialogResult result = MessageBox.Show("Do you want to delete contact?", "Warning", MessageBoxButtons.YesNo);
-                if(result == DialogResult.Yes)
+                ContactModel contactModel = new ContactModel();
+                Boolean checkContactinUse = contactModel.checkContact(id);
+                if (checkContactinUse)
                 {
-                    ContactModel contactModel = new ContactModel();
-                    Boolean isDeleted = contactModel.deleteContact(id,loggedInUser.UserId);
-                    if (isDeleted)
+                    MessageBox.Show("This contact is selected in an event. Please delete the event first !");
+                }
+                else{
+                    DialogResult result = MessageBox.Show("Do you want to delete contact?", "Warning", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
                     {
-                        contactControl.Dispose();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Delete failed due to database connection error !");
+                        Boolean isDeleted = contactModel.deleteContact(id, loggedInUser.UserId);
+                        if (isDeleted)
+                        {
+                            contactControl.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Delete failed due to database connection error !");
+                        }
                     }
                 }
             }

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace EADCourseworkTwo
@@ -40,9 +41,9 @@ namespace EADCourseworkTwo
             IList<Contact> contactList = contactModel.getContact(loggedInUser.UserId);
             foreach (Contact contact in contactList)
             {
-                checkedListBox1.Items.Add(contact.ContactName);
+                checkedListBox1.Items.Add(new ListItem(contact.ContactName, contact.Id.ToString()));
             }
-           
+
         }
 
         private void addEventBtn_Click(object sender, EventArgs e)
@@ -78,10 +79,10 @@ namespace EADCourseworkTwo
                 eventType = 2;
             }
 
-            foreach (string item in checkedListBox1.CheckedItems)
+            foreach (ListItem item in checkedListBox1.CheckedItems)
             {
                 ContactModel contactModel = new ContactModel();
-                Contact contact = contactModel.getContactUsingContactName(item);
+                Contact contact = contactModel.getContactUsingContactId(Convert.ToInt32(item.Value));
                 contactList.Add(contact);
             }
 
@@ -116,7 +117,7 @@ namespace EADCourseworkTwo
                             evnt.ContactList = contactList;
                             validate = eventModel.addEvent(evnt);
                             validate1 = eventModel.addContactsSelected(evnt);
-                        }
+                        } 
                         if (validate && validate1)
                         {
                             MessageBox.Show("Event Saved Successfully!");

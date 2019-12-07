@@ -31,6 +31,7 @@ namespace EADCourseworkTwo
             addContact.ContactName = contact.ContactName;
             addContact.ContactNumber = contact.ContactNumber;
             addContact.Email = contact.Email;
+            addContact.saveContact.Text = "Update";
             addContact.saveContact.Click += SaveButton_Click;
 
             tableLayoutPanel2.Controls.Add(addContact, 0, 1  );

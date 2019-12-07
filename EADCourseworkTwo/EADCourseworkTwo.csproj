@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,6 +97,12 @@
     </Compile>
     <Compile Include="EditContactForm.Designer.cs">
       <DependentUpon>EditContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditEventForm.Designer.cs">
+      <DependentUpon>EditEventForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EventControl.cs">
       <SubType>UserControl</SubType>
@@ -149,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditContactForm.resx">
       <DependentUpon>EditContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditEventForm.resx">
+      <DependentUpon>EditEventForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventControl.resx">
       <DependentUpon>EventControl.cs</DependentUpon>

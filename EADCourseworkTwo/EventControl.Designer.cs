@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.evntTitleLbl = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.editEvntBtn = new System.Windows.Forms.Button();
             this.dltEvntbtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -198,6 +200,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
             // tableLayoutPanel3
             // 
@@ -274,5 +277,6 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label startTimeLbl;
         public System.Windows.Forms.Label endTimeLbl;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

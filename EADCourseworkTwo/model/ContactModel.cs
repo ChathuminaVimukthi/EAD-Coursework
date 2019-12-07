@@ -117,30 +117,6 @@ namespace EADCourseworkTwo.model
             return contactList;
         }
 
-        //Get contact using contact name
-        public Contact getContactUsingContactName(string contactName)
-        {
-            Contact contact = new Contact();
-            string queryString = "SELECT * FROM Contact WHERE ContactName= '" + contactName + "'";
-            using (sqlConnection = new SqlConnection(connectionString))
-            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
-            {
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    contact.Id = Convert.ToInt32(row["Id"]);
-                    contact.ContactName = row["ContactName"].ToString();
-                    contact.ContactNumber = Convert.ToInt32(row["ContactNumber"]);
-                    contact.Email = row["Email"].ToString();
-                    contact.UserId = Convert.ToInt32(row["UserId"]);
-                }
-
-                return contact;
-            }
-        }
-
         //Get contact using Id
         public Contact getContactUsingContactId(int contacId)
         {
@@ -163,6 +139,26 @@ namespace EADCourseworkTwo.model
 
                 return contact;
             }
+        }
+
+        //Get contacts using eventId
+        public IList<int> getContactsSelected(int evntId)
+        {
+            IList<int> contactList = new List<int>();
+            string queryString = "SELECT ContactsSelected.ContactId FROM ContactsSelected WHERE EventId= '" + evntId + "'";
+            using (sqlConnection = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
+            {
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    contactList.Add(Convert.ToInt32(row["ContactId"]));
+
+                }
+            }
+            return contactList;
         }
 
         //Update contact details
@@ -239,6 +235,27 @@ namespace EADCourseworkTwo.model
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
+                    return false;
+                }
+            }
+        }
+
+        //Check contact is in use
+        public Boolean checkContact(int contactId)
+        {
+            string queryString = "SELECT * FROM ContactsSelected WHERE ContactId= '" + contactId + "'";
+            using (sqlConnection = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
+            {
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if(dataTable.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
                     return false;
                 }
             }

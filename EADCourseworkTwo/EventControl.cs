@@ -14,24 +14,14 @@ namespace EADCourseworkTwo
     {
         private int eventId;
         private int eventType;
+        private Boolean isRecurring;
+        private int recurringId;
 
-        public EventControl(int evType)
+        public EventControl()
         {
             InitializeComponent();
-            updateIcon(evType);
+            this.pictureBox1.Image = Properties.Resources.info;
             
-        }
-
-        private void updateIcon(int evType)
-        {
-            if(evType == 1)
-            {
-                this.pictureBox1.Image = Properties.Resources.info;
-            }
-            else
-            {
-                this.pictureBox1.Image = Properties.Resources.info;
-            }
         }
 
         public string Title
@@ -84,7 +74,19 @@ namespace EADCourseworkTwo
 
         public int EventId { get => eventId; set => eventId = value; }
         public int EventType { get => eventType; set => eventType = value; }
+        public bool IsRecurring { get => isRecurring; set => isRecurring = value; }
+        public int RecurringId { get => recurringId; set => recurringId = value; }
 
-
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            if(this.EventType == 1)
+            {
+                toolTip1.SetToolTip(pictureBox1, "Task");
+            }
+            else
+            {
+                toolTip1.SetToolTip(pictureBox1, "Appointment");
+            }
+        }
     }
 }
