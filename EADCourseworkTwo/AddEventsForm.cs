@@ -38,7 +38,6 @@ namespace EADCourseworkTwo
 
         private void generateEventsButn_Click(object sender, EventArgs e)
         {
-            this.panel2.Visible = false;
             int amount = Convert.ToInt32(this.numericUpDown1.Value);
             for (int i = 0; i < amount; i++)
             {
@@ -100,6 +99,7 @@ namespace EADCourseworkTwo
                             {
                                 if (validate && validate1)
                                 {
+                                    addEventControl.Dispose();
                                     MessageBox.Show("Event Saved Successfully!");
                                 }
                                 else
@@ -111,6 +111,7 @@ namespace EADCourseworkTwo
                             {
                                 if (validate)
                                 {
+                                    addEventControl.Dispose();
                                     MessageBox.Show("Event Saved Successfully!");
                                 }
                                 else
@@ -139,6 +140,7 @@ namespace EADCourseworkTwo
                                 validate = eventModel.addEvent(evnt);
                                 if (addEventControl.IsContactsSet)
                                 {
+                                    addEventControl.Dispose();
                                     validate1 = eventModel.addContactsSelected(evnt);
                                 }
                             }
@@ -146,6 +148,7 @@ namespace EADCourseworkTwo
                             {
                                 if (validate && validate1)
                                 {
+                                    addEventControl.Dispose();
                                     MessageBox.Show("Event Saved Successfully!");
                                 }
                                 else
@@ -157,6 +160,7 @@ namespace EADCourseworkTwo
                             {
                                 if (validate)
                                 {
+                                    addEventControl.Dispose();
                                     MessageBox.Show("Event Saved Successfully!");
                                 }
                                 else
@@ -185,6 +189,7 @@ namespace EADCourseworkTwo
                                 addedContactList = eventModel.addContactsSelected(evnt);
                                 if (addedEvent && addedContactList)
                                 {
+                                    addEventControl.Dispose();
                                     MessageBox.Show("Event Saved Successfully!");
                                 }
                                 else
@@ -196,6 +201,7 @@ namespace EADCourseworkTwo
                             {
                                 if (addedEvent)
                                 {
+                                    addEventControl.Dispose();
                                     MessageBox.Show("Event Saved Successfully!");
                                 }
                                 else

@@ -18,12 +18,13 @@ namespace EADCourseworkTwo
         Boolean isSetEvents = false;
         IList<Event> eventList;
         DateTime dateTime = DateTime.Now;
-        //DateTime dt = new DateTime(2020, 01, 02);
+        //DateTime dateTime = new DateTime(2020, 01, 02);
         public HomeForm(User user)
         {
 
             InitializeComponent();
             logedInUser = user;
+            this.nameLbl.Text = user.UserName;
             this.addContactBtn.Text = Properties.Resources.addContactBtn;
             this.addEventBtn.Text = Properties.Resources.addEventBtn;
             this.viewContactBtn.Text = Properties.Resources.viewContactButton;
@@ -72,7 +73,7 @@ namespace EADCourseworkTwo
                 }
             }
 
-            label1.Text = dateTime.ToString("MMMM");
+            label1.Text = dateTime.ToString("MMMM") + " " + dateTime.ToString("yyyy");
 
             string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             for(int i = 0; i < tableLayoutPanel3.ColumnCount; i++)
@@ -116,7 +117,17 @@ namespace EADCourseworkTwo
                 {
                     if (ev.StartingDateTime.Day == day)
                     {
-                        label.BackColor = Color.Red;
+                        if (ev.RecurringFlag == 3)
+                        {
+                            toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
+                            label.BackColor = ColorTranslator.FromHtml("#ff5252");
+                        }
+                        else
+                        {
+                            toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
+                            label.BackColor = ColorTranslator.FromHtml("#40407a");
+                            label.ForeColor = Color.White;
+                        }
                     }
                 }
                 label.BorderStyle = BorderStyle.FixedSingle;
@@ -138,10 +149,12 @@ namespace EADCourseworkTwo
                     {
                         if(ev.RecurringFlag == 3)
                         {
+                            toolTip1.SetToolTip(label, ev.EventTitle+" at "+ev.Location);
                             label.BackColor = ColorTranslator.FromHtml("#ff5252");
                         }
                         else
                         {
+                            //toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
                             label.BackColor = ColorTranslator.FromHtml("#40407a");
                             label.ForeColor = Color.White;
                         }
