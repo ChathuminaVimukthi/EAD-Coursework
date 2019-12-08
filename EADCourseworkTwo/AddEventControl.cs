@@ -336,5 +336,15 @@ namespace EADCourseworkTwo
         {
             this.numericUpDown1.Enabled = false;
         }
+
+        private void dailyRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Enabled = true;
+        }
+
+        private void monthlyRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Enabled = true;
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace EADCourseworkTwo
                 Boolean validate = userModel.validateUser(userName, password);
                 if (!validate)
                 {
+                    
                     MessageBox.Show("Entered Username and Password do not match !");
                 }
                 else
@@ -60,6 +61,7 @@ namespace EADCourseworkTwo
 
                 if (isRegistered)
                 {
+                    ClearTextBoxes();
                     MessageBox.Show("You have been registered successfully. Please Login to continue!");
                 }
                 else
@@ -67,6 +69,22 @@ namespace EADCourseworkTwo
                     MessageBox.Show("Database connection error occured! Please try again!");
                 }
             }
+        }
+
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
 
         private Boolean validations()

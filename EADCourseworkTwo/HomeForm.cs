@@ -16,14 +16,20 @@ namespace EADCourseworkTwo
         User logedInUser;
         Boolean isSetContacts = false;
         Boolean isSetEvents = false;
+        IList<Event> eventList;
+        DateTime dateTime = DateTime.Now;
+        //DateTime dt = new DateTime(2020, 01, 02);
         public HomeForm(User user)
         {
+
             InitializeComponent();
             logedInUser = user;
             this.addContactBtn.Text = Properties.Resources.addContactBtn;
             this.addEventBtn.Text = Properties.Resources.addEventBtn;
             this.viewContactBtn.Text = Properties.Resources.viewContactButton;
             this.viewEventBtn.Text = Properties.Resources.viewEventsBtn;
+            EventModel eventModel = new EventModel();
+            eventList = eventModel.getAllEventDetails(user.UserId);
             setGlobalFlags();
             populateTableLayout(user);
         }
@@ -38,8 +44,6 @@ namespace EADCourseworkTwo
             }
 
             EventModel eventModel = new EventModel();
-            IList<Event> eventList = eventModel.getAllEventDetails(logedInUser.UserId);
-            DateTime dateTime = DateTime.Now;
             string time = dateTime.ToString("HH:mm");
             string date = dateTime.ToString("yyyy-MM-dd");
             DateTime currentDateTime = DateTime.Parse(date + " " + time);
@@ -59,7 +63,16 @@ namespace EADCourseworkTwo
 
         private void populateTableLayout(User user)
         {
-            label1.Text = DateTime.Now.ToString("MMMM");
+            IList<Event> monthlyevntList = new List<Event>();
+            foreach(Event ev in eventList)
+            {
+                if(ev.StartingDateTime.Month == dateTime.Month)
+                {
+                    monthlyevntList.Add(ev);
+                }
+            }
+
+            label1.Text = dateTime.ToString("MMMM");
 
             string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             for(int i = 0; i < tableLayoutPanel3.ColumnCount; i++)
@@ -73,9 +86,7 @@ namespace EADCourseworkTwo
                 label.Dock = DockStyle.Fill;
             }
 
-            DateTime dt = DateTime.Now;
-
-            DateTime start = new DateTime(dt.Year, dt.Month, 1);
+            DateTime start = new DateTime(dateTime.Year, dateTime.Month, 1);
             DateTime end = start.AddMonths(1).AddDays(-1);
 
             string startDay = start.DayOfWeek.ToString();
@@ -101,6 +112,13 @@ namespace EADCourseworkTwo
                 label.Text = day+"";
                 label.ForeColor = Color.Black;
                 label.BackColor = Color.White;
+                foreach(Event ev in monthlyevntList)
+                {
+                    if (ev.StartingDateTime.Day == day)
+                    {
+                        label.BackColor = Color.Red;
+                    }
+                }
                 label.BorderStyle = BorderStyle.FixedSingle;
                 label.TextAlign = ContentAlignment.MiddleCenter;
                 tableLayoutPanel3.Controls.Add(label,i, 1);
@@ -109,16 +127,30 @@ namespace EADCourseworkTwo
 
             int rest = numOfDays - topRow;
             for (int col = 0; col < rest; col++){
-                    int day = col + topRow + 1;
-                    Label label = new Label();
-                    label.Text = day + "";
-                    label.ForeColor = Color.Black;
-                    label.BackColor = Color.White;
-                    label.BorderStyle = BorderStyle.FixedSingle;
-                    label.TextAlign = ContentAlignment.MiddleCenter;
-                    tableLayoutPanel3.Controls.Add(label, col, 2);
-                    label.Dock = DockStyle.Fill;
-                
+                int day = col + topRow + 1;
+                Label label = new Label();
+                label.Text = day + "";
+                label.ForeColor = Color.Black;
+                label.BackColor = Color.White;
+                foreach (Event ev in monthlyevntList)
+                {
+                    if (ev.StartingDateTime.Day == day)
+                    {
+                        if(ev.RecurringFlag == 3)
+                        {
+                            label.BackColor = ColorTranslator.FromHtml("#ff5252");
+                        }
+                        else
+                        {
+                            label.BackColor = ColorTranslator.FromHtml("#40407a");
+                            label.ForeColor = Color.White;
+                        }
+                    }
+                }
+                label.BorderStyle = BorderStyle.FixedSingle;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                tableLayoutPanel3.Controls.Add(label, col, 2);
+                label.Dock = DockStyle.Fill;
             }
         }
 
@@ -176,9 +208,42 @@ namespace EADCourseworkTwo
 
         private void generateReport_Click(object sender, EventArgs e)
         {
-            ReportForm reportForm = new ReportForm(logedInUser);
+            Boolean loading = false;
+            EventModel eventModel = new EventModel();
+            string time = dateTime.ToString("HH:mm");
+            string date = dateTime.ToString("yyyy-MM-dd");
+            DateTime currentDateTime = DateTime.Parse(date + " " + time);
+            foreach (Event evnt in eventList)
+            {
+                if (eventList.Count > 0)
+                {
+                    if (evnt.StartingDateTime.Day < currentDateTime.Day)
+                    {
+                        loading = true;
+                        break;
+                    }
+                }
+            }
+
+            if (loading)
+            {
+                ReportForm reportForm = new ReportForm(logedInUser);
+                this.Hide();
+                reportForm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("There are no past events to genearte a prediction!");
+            }
+            
+        }
+
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
             this.Hide();
-            reportForm.ShowDialog();
+            loginForm.ShowDialog();
             this.Close();
         }
     }

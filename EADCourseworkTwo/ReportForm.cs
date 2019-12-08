@@ -31,7 +31,13 @@ namespace EADCourseworkTwo
         {
             InitializeComponent();
             loggedInUser = user;
+            this.tableLayoutPanel3.CellPaint += tableLayoutPane2_CellPaint;
             generateReport();
+        }
+
+        private void tableLayoutPane2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
         private void generateReport()
@@ -75,7 +81,7 @@ namespace EADCourseworkTwo
             totalHours = (int)timeUsagePerMonth / 60;
             totalMinutes = (int)timeUsagePerMonth % 60;
 
-            this.totalNumberOfEventsLbl.Text = totalNumOfEvents.ToString();
+            this.totalNumberOfEventsLbl.Text = totalNumOfEvents.ToString()+" Events";
             this.totalTimePastEvntLbl.Text = (Convert.ToInt32(totalTimeUsageForEvents) / 60)+" Hours and "+ (Convert.ToInt32(totalTimeUsageForEvents) % 60) +" Minutes";
             this.timeUsagePerEventLbl.Text = (Convert.ToInt32(averageTimeUsagePerEvent) / 60) + " Hours and " + (Convert.ToInt32(averageTimeUsagePerEvent) % 60) + " Minutes";
             this.timeUsagePerWeekLbl.Text = (Convert.ToInt32(timeUsagePerWeek) / 60) + " Hours and " + (Convert.ToInt32(timeUsagePerWeek) % 60) + " Minutes";
@@ -103,22 +109,16 @@ namespace EADCourseworkTwo
             {
                 sw.WriteLine("Today is : " + DateTime.Now + "\n" + "Name :" + loggedInUser.UserName + "\n\n");
                 sw.WriteLine("--------------PREDICTION RESULT-------------");
-
-                sw.WriteLine("\n\n");
                 sw.WriteLine("\n");
-                sw.WriteLine("Number Of Past Events     |  " + Convert.ToString(totalNumOfEvents));
+                sw.WriteLine("Number Of Past Events = " + Convert.ToString(totalNumOfEvents));
                 sw.WriteLine("\n");
+                sw.WriteLine("Average time usage per Event = " + Convert.ToString(Convert.ToInt32(averageTimeUsagePerEvent) / 60) + "Hours and " + Convert.ToString(Convert.ToInt32(averageTimeUsagePerEvent) % 60) + "  minutes");
                 sw.WriteLine("\n");
-                sw.WriteLine("Average time usage per Event   |  " + Convert.ToString(Convert.ToInt32(averageTimeUsagePerEvent) / 60) + ":" + Convert.ToString(Convert.ToInt32(averageTimeUsagePerEvent) % 60) + "  Hours/event");
+                sw.WriteLine("Average Events per Week = " + Convert.ToString(numberOfEventsPerWeek) + "  Events/Week");
                 sw.WriteLine("\n");
+                sw.WriteLine("Time Usage Per Week = " + Convert.ToString(Convert.ToInt32(timeUsagePerWeek) / 60) + "Hours and" + Convert.ToString(Convert.ToInt32(timeUsagePerWeek) % 60) + " minutes");
                 sw.WriteLine("\n");
-                sw.WriteLine("Average Events per Week   |  " + Convert.ToString(numberOfEventsPerWeek) + "  Events/Week");
-                sw.WriteLine("\n");
-                sw.WriteLine("\n");
-                sw.WriteLine("Time Usage Per Week   |  " + Convert.ToString(Convert.ToInt32(timeUsagePerWeek) / 60) + ":" + Convert.ToString(Convert.ToInt32(timeUsagePerWeek) % 60) + "  Hours/Week");
-                sw.WriteLine("\n");
-                sw.WriteLine("\n");
-                sw.WriteLine("***Average Hours per Month   |  " + totalHours + ":" + totalMinutes + "  Hours/Month");
+                sw.WriteLine("Predicted time usage per Month = " + totalHours + ":" + totalMinutes + "  Hours/Month");
                 sw.WriteLine("\n");
 
             }

@@ -257,6 +257,7 @@
             this.dailyRadioBtn.TabStop = true;
             this.dailyRadioBtn.Text = "Daily";
             this.dailyRadioBtn.UseVisualStyleBackColor = true;
+            this.dailyRadioBtn.CheckedChanged += new System.EventHandler(this.dailyRadioBtn_CheckedChanged);
             // 
             // monthlyRadioBtn
             // 
@@ -269,6 +270,7 @@
             this.monthlyRadioBtn.TabStop = true;
             this.monthlyRadioBtn.Text = "Monthly";
             this.monthlyRadioBtn.UseVisualStyleBackColor = true;
+            this.monthlyRadioBtn.CheckedChanged += new System.EventHandler(this.monthlyRadioBtn_CheckedChanged);
             // 
             // oneOffRadioBtn
             // 
@@ -522,6 +524,7 @@
             // 
             // errorProviderEvent
             // 
+            this.errorProviderEvent.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderEvent.ContainerControl = this;
             // 
             // AddEventControl

@@ -141,7 +141,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(548, 44);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Time Usage Forcast";
+            this.label1.Text = "Time Usage Forecast";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
@@ -285,6 +285,7 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(167, 191);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";

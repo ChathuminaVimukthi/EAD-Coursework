@@ -39,10 +39,10 @@ namespace EADCourseworkTwo
                     MessageBox.Show("User Name cannot be empty !");
                 }else if(email == "")
                 {
-                    MessageBox.Show("Enter valid Email Address !");
+
                 }else if(contactNumber == 0)
                 {
-                    MessageBox.Show("Enter valid Mobile Number !");
+
                 }
                 else
                 {
@@ -64,6 +64,22 @@ namespace EADCourseworkTwo
                     }
                 }
             }
+        }
+
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
 
         private void addMoreButton_Click(object sender, EventArgs e)

@@ -73,6 +73,7 @@ namespace EADCourseworkTwo
                     Boolean isUpdated = contactModel.updateContact(contact);
                     if (isUpdated)
                     {
+                        ClearTextBoxes();
                         MessageBox.Show("Contact Updated !");
                     }
                     else
@@ -83,6 +84,21 @@ namespace EADCourseworkTwo
             }
         }
 
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+        }
         private void homeBtn_Click(object sender, EventArgs e)
         {
             HomeForm homeForm = new HomeForm(loggedInUser);
