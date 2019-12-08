@@ -20,6 +20,7 @@ namespace EADCourseworkTwo
             InitializeComponent();
             loggedinUser = user;
             showAddForm();
+
         }
 
         public void SaveButton_Click(object sender, EventArgs e)
@@ -69,8 +70,8 @@ namespace EADCourseworkTwo
         {
             AddContact addContact = new AddContact();
             addContact.saveContact.Click += SaveButton_Click;
+            addContact.BackColor = ColorTranslator.FromHtml("#706fd3");
             tableLayoutPanel3.Controls.Add(addContact, 0, 1);
-
             addMoreButton.Dispose();
         }
 
@@ -78,7 +79,29 @@ namespace EADCourseworkTwo
         {
             AddContact addContact = new AddContact();
             addContact.saveContact.Click += SaveButton_Click;
+            addContact.BackColor = ColorTranslator.FromHtml("#706fd3");
             tableLayoutPanel3.Controls.Add(addContact, 0, 0);
+        }
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm(loggedinUser);
+            this.Hide();
+            homeForm.Show();
+            this.Close();
+        }
+
+        private void addEvent_Click(object sender, EventArgs e)
+        {
+            AddEventForm addEventForm = new AddEventForm(loggedinUser);
+            this.Hide();
+            addEventForm.Show();
+            this.Close();
+        }
+
+        private void addMoreButton_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(addMoreButton, "Click to add multiple contacts!");
         }
     }
 }

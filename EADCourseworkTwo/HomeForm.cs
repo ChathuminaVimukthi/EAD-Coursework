@@ -14,6 +14,8 @@ namespace EADCourseworkTwo
     public partial class HomeForm : Form
     {
         User logedInUser;
+        Boolean isSetContacts = false;
+        Boolean isSetEvents = false;
         public HomeForm(User user)
         {
             InitializeComponent();
@@ -22,7 +24,25 @@ namespace EADCourseworkTwo
             this.addEventBtn.Text = Properties.Resources.addEventBtn;
             this.viewContactBtn.Text = Properties.Resources.viewContactButton;
             this.viewEventBtn.Text = Properties.Resources.viewEventsBtn;
+            setGlobalFlags();
             populateTableLayout(user);
+        }
+
+        public void setGlobalFlags()
+        {
+            ContactModel contactModel = new ContactModel();
+            IList<Contact> contactList = contactModel.getContact(logedInUser.UserId);
+            if (contactList.Count > 0)
+            {
+                isSetContacts = true;
+            }
+
+            EventModel eventModel = new EventModel();
+            IList<Event> eventList = eventModel.getAllEventDetails(logedInUser.UserId);
+            if(eventList.Count> 0)
+            {
+                isSetEvents = true;
+            }
         }
 
         private void populateTableLayout(User user)
@@ -99,25 +119,54 @@ namespace EADCourseworkTwo
         private void addContactBtn_Click(object sender, EventArgs e)
         {
             AddContactForm addContactForm = new AddContactForm(logedInUser);
+            this.Hide();
             addContactForm.Show();
+            this.Close();
         }
 
         private void addEventBtn_Click(object sender, EventArgs e)
         {
             AddEventForm addEventForm = new AddEventForm(logedInUser);
+            this.Hide();
             addEventForm.Show();
+            this.Close();
         }
 
         private void viewContactBtn_Click(object sender, EventArgs e)
         {
-            ViewContactListForm viewContactListForm = new ViewContactListForm(logedInUser);
-            viewContactListForm.Show();
+            if (isSetContacts)
+            {
+                ViewContactListForm viewContactListForm = new ViewContactListForm(logedInUser);
+                this.Hide();
+                viewContactListForm.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("There are no previously added contacts to view! Please add a contact first!");
+            }
+            
         }
 
         private void viewEventBtn_Click(object sender, EventArgs e)
         {
-            ViewEventsForm viewEventsForm = new ViewEventsForm(logedInUser);
-            viewEventsForm.Show();
+            if (isSetEvents)
+            {
+                ViewEventsForm viewEventsForm = new ViewEventsForm(logedInUser);
+                this.Hide();
+                viewEventsForm.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("There are no previously added events to view! Please add an event first!");
+            }
+        }
+
+        private void generateReport_Click(object sender, EventArgs e)
+        {
+            ReportForm reportForm = new ReportForm(logedInUser);
+            reportForm.Show();
         }
     }
 }

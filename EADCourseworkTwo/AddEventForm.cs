@@ -16,12 +16,13 @@ namespace EADCourseworkTwo
     {
         User loggedInUser;
         int recurringAmount = 0;
+        Boolean isSetContacts = true;
         public AddEventForm(User user)
         {
             InitializeComponent();
             loggedInUser = user;
             this.tableLayoutPanel2.CellPaint += tableLayoutPane2_CellPaint;
-            this.startDatePicker.MinDate = DateTime.Now;
+            //this.startDatePicker.MinDate = DateTime.Now;
             this.endDatePicker.MinDate = DateTime.Now;
             populateCheckedList();
             this.startTimePicker.CustomFormat = "HH:mm";
@@ -39,12 +40,39 @@ namespace EADCourseworkTwo
         {
             ContactModel contactModel = new ContactModel();
             IList<Contact> contactList = contactModel.getContact(loggedInUser.UserId);
-            foreach (Contact contact in contactList)
+            if(contactList.Count > 0)
             {
-                checkedListBox1.Items.Add(new ListItem(contact.ContactName, contact.Id.ToString()));
+                foreach (Contact contact in contactList)
+                {
+                    checkedListBox1.Items.Add(new ListItem(contact.ContactName, contact.Id.ToString()));
+                }
             }
-
+            else
+            {
+                checkedListBox1.Visible = false;
+                isSetContacts = false;
+                System.Windows.Forms.Label infoLabel = new System.Windows.Forms.Label();
+                infoLabel.Text = "There are no contacts added! Click here to add Contacts";
+                infoLabel.Margin = new Padding(3,3,3,3);
+                infoLabel.ForeColor = ColorTranslator.FromHtml("#b33939");
+                infoLabel.BackColor = ColorTranslator.FromHtml("#f7f1e3");
+                infoLabel.TextAlign = ContentAlignment.MiddleCenter;
+                infoLabel.Font = new Font("Arial", 12, FontStyle.Bold); ;
+                infoLabel.Click += this.ShowContactForm;
+                this.tableLayoutPanel2.Controls.Add(infoLabel,1,4);
+                infoLabel.Dock = DockStyle.Fill;
+            }
         }
+
+        private void ShowContactForm(object sender, EventArgs e)
+        {
+            if(sender is System.Windows.Forms.Label)
+            {
+                AddContactForm addContactForm = new AddContactForm(loggedInUser);
+                addContactForm.Show();
+            }
+        }
+
 
         private void addEventBtn_Click(object sender, EventArgs e)
         {
@@ -116,16 +144,34 @@ namespace EADCourseworkTwo
                             evnt.RecurringId = recId;
                             evnt.ContactList = contactList;
                             validate = eventModel.addEvent(evnt);
-                            validate1 = eventModel.addContactsSelected(evnt);
-                        } 
-                        if (validate && validate1)
+                            if (isSetContacts)
+                            {
+                                validate1 = eventModel.addContactsSelected(evnt);
+                            }
+                        }
+                        if (isSetContacts)
                         {
-                            MessageBox.Show("Event Saved Successfully!");
+                            if (validate && validate1)
+                            {
+                                MessageBox.Show("Event Saved Successfully!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Database connection failed.Try again !");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Database connection failed.Try again !");
+                            if (validate)
+                            {
+                                MessageBox.Show("Event Saved Successfully!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Database connection failed.Try again !");
+                            }
                         }
+                        
                     }
                     if(recurring == 2)
                     {
@@ -146,15 +192,32 @@ namespace EADCourseworkTwo
                             evnt.RecurringId = recId;
                             evnt.ContactList = contactList;
                             validate = eventModel.addEvent(evnt);
-                            validate1 = eventModel.addContactsSelected(evnt);
+                            if (isSetContacts)
+                            {
+                                validate1 = eventModel.addContactsSelected(evnt);
+                            }
                         }
-                        if (validate && validate1)
+                        if (isSetContacts)
                         {
-                            MessageBox.Show("Event Saved Successfully!");
-                        } 
+                            if (validate && validate1)
+                            {
+                                MessageBox.Show("Event Saved Successfully!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Database connection failed.Try again !");
+                            }
+                        }
                         else
                         {
-                            MessageBox.Show("Database connection failed.Try again !");
+                            if (validate)
+                            {
+                                MessageBox.Show("Event Saved Successfully!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Database connection failed.Try again !");
+                            }
                         }
                     }
                     if (recurring == 3)
@@ -171,15 +234,29 @@ namespace EADCourseworkTwo
                         evnt.ContactList = contactList;
 
                         Boolean addedEvent = eventModel.addEvent(evnt);
-                        Boolean addedContactList = eventModel.addContactsSelected(evnt);
-
-                        if (addedEvent && addedContactList)
+                        Boolean addedContactList = false;
+                        if (isSetContacts)
                         {
-                            MessageBox.Show("Event Saved Successfully!");
+                            addedContactList = eventModel.addContactsSelected(evnt);
+                            if (addedEvent && addedContactList)
+                            {
+                                MessageBox.Show("Event Saved Successfully!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Database connection failed.Try again !");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Database connection failed.Try again !");
+                            if (addedEvent)
+                            {
+                                MessageBox.Show("Event Saved Successfully!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Database connection failed.Try again !");
+                            }
                         }
                     }
                 }
@@ -300,15 +377,19 @@ namespace EADCourseworkTwo
             {
                 errorProviderEvent.SetError(tableLayoutPanel6, "");
             }
-            if (checkedListBox1.CheckedIndices.Count == 0)
+            if (isSetContacts)
             {
-                isOkay = false;
-                errorProviderEvent.SetError(checkedListBox1, "Select atleast one contact!");
+                if (checkedListBox1.CheckedIndices.Count == 0)
+                {
+                    isOkay = false;
+                    errorProviderEvent.SetError(checkedListBox1, "Select atleast one contact!");
+                }
+                else
+                {
+                    errorProviderEvent.SetError(checkedListBox1, "");
+                }
             }
-            else
-            {
-                errorProviderEvent.SetError(checkedListBox1, "");
-            }
+            
             if (!monthlyRadioBtn.Checked && !dailyRadioBtn.Checked && !oneOffRadioBtn.Checked)
             {
                 isOkay = false;
@@ -346,6 +427,22 @@ namespace EADCourseworkTwo
         {
             this.numericUpDown1.Enabled = true;
             recurringAmount = Convert.ToInt32(this.numericUpDown1.Value);
+        }
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm(loggedInUser);
+            this.Hide();
+            homeForm.Show();
+            this.Close();
+        }
+
+        private void addContact_Click(object sender, EventArgs e)
+        {
+            AddContactForm addContactForm = new AddContactForm(loggedInUser);
+            this.Hide();
+            addContactForm.Show();
+            this.Close();
         }
     }
 }

@@ -93,5 +93,21 @@ namespace EADCourseworkTwo
             this.Close();
 
         }
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm(loggedInUser);
+            this.Hide();
+            homeForm.Show();
+            this.Close();
+        }
+
+        private void viewContactList_Click(object sender, EventArgs e)
+        {
+            ViewContactListForm viewContactListForm = new ViewContactListForm(loggedInUser);
+            this.Hide();
+            viewContactList.Show();
+            this.Close();
+        }
     }
 }

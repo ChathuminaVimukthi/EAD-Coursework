@@ -133,5 +133,21 @@ namespace EADCourseworkTwo
                 flowLayoutPanel1.Controls.Add(eventControl);
             }
         }
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm(loggedInUser);
+            this.Hide();
+            homeForm.Show();
+            this.Close();
+        }
+
+        private void addEvent_Click(object sender, EventArgs e)
+        {
+            AddEventForm addEventForm = new AddEventForm(loggedInUser);
+            this.Hide();
+            addEventForm.Show();
+            this.Close();
+        }
     }
 }

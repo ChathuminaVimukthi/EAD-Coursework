@@ -479,5 +479,37 @@ namespace EADCourseworkTwo.model
                 }
             }
         }
+
+        //Get past events
+        public IList<Event> gerPastEvents(int userId,DateTime dateTime)
+        {
+            IList<Event> eventList = new List<Event>();
+            string queryString = "SELECT * FROM Event WHERE StartingTime < '"+dateTime+"' AND UserId ='"+userId+"'";
+
+            using (sqlConnection = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
+            {
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    Event evnt = new Event();
+                    evnt.EventId = Convert.ToInt32(row["Id"]);
+                    evnt.EventTitle = row["Title"].ToString();
+                    evnt.EventDescription = row["Description"].ToString();
+                    evnt.StartingDateTime = Convert.ToDateTime(row["StartingTime"]);
+                    evnt.EndingDateTime = Convert.ToDateTime(row["EndingTime"]);
+                    evnt.EventFlag = Convert.ToInt32(row["EventFlag"]);
+                    evnt.RecurringFlag = Convert.ToInt32(row["RecurringFlag"]);
+                    evnt.Location = row["Location"].ToString();
+                    evnt.UserId = Convert.ToInt32(row["UserId"]);
+                    evnt.RecurringId = Convert.ToInt32(row["RecurringId"]);
+                    eventList.Add(evnt);
+                }
+
+                return eventList;
+            }
+        }
     }
 }

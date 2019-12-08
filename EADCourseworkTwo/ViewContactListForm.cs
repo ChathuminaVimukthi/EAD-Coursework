@@ -87,5 +87,21 @@ namespace EADCourseworkTwo
                 flowLayoutPanel1.Controls.Add(contactControl);
             }
         }
+
+        private void addContact_Click(object sender, EventArgs e)
+        {
+            AddContactForm addContactForm = new AddContactForm(loggedInUser);
+            this.Hide();
+            addContactForm.Show();
+            this.Close();
+        }
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm(loggedInUser);
+            this.Hide();
+            homeForm.Show();
+            this.Close();
+        }
     }
 }

@@ -33,12 +33,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.contactListBtn = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.homeBtn = new System.Windows.Forms.Button();
+            this.viewContactList = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,8 +80,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(548, 40);
@@ -89,26 +94,60 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
-            this.panel1.Controls.Add(this.contactListBtn);
+            this.panel1.Controls.Add(this.tableLayoutPanel8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(234, 444);
             this.panel1.TabIndex = 1;
             // 
-            // contactListBtn
-            // 
-            this.contactListBtn.Location = new System.Drawing.Point(9, 9);
-            this.contactListBtn.Name = "contactListBtn";
-            this.contactListBtn.Size = new System.Drawing.Size(213, 43);
-            this.contactListBtn.TabIndex = 0;
-            this.contactListBtn.Text = "Contacts List";
-            this.contactListBtn.UseVisualStyleBackColor = true;
-            this.contactListBtn.Click += new System.EventHandler(this.contactListBtn_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.homeBtn, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.viewContactList, 0, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 9;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(234, 444);
+            this.tableLayoutPanel8.TabIndex = 2;
+            // 
+            // homeBtn
+            // 
+            this.homeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeBtn.Location = new System.Drawing.Point(3, 3);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(228, 43);
+            this.homeBtn.TabIndex = 0;
+            this.homeBtn.Text = "Go to Home";
+            this.homeBtn.UseVisualStyleBackColor = true;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // viewContactList
+            // 
+            this.viewContactList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewContactList.Location = new System.Drawing.Point(3, 52);
+            this.viewContactList.Name = "viewContactList";
+            this.viewContactList.Size = new System.Drawing.Size(228, 43);
+            this.viewContactList.TabIndex = 1;
+            this.viewContactList.Text = "View Contacts";
+            this.viewContactList.UseVisualStyleBackColor = true;
+            this.viewContactList.Click += new System.EventHandler(this.viewContactList_Click);
             // 
             // EditContactForm
             // 
@@ -123,6 +162,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -133,7 +173,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button contactListBtn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Button homeBtn;
+        private System.Windows.Forms.Button viewContactList;
     }
 }

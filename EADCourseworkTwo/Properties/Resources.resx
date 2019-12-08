@@ -136,6 +136,9 @@
   <data name="backgroundLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backgroundLogin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="confirmPassLabel" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
@@ -162,6 +165,9 @@
   </data>
   <data name="passwordLabel" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="viewContactButton" xml:space="preserve">
     <value>View Contacts</value>

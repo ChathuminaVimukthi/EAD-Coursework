@@ -37,6 +37,7 @@
             this.addContactBtn = new System.Windows.Forms.Button();
             this.viewContactBtn = new System.Windows.Forms.Button();
             this.viewEventBtn = new System.Windows.Forms.Button();
+            this.generateReport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel43.SuspendLayout();
@@ -120,6 +121,7 @@
             this.tableLayoutPanel4.Controls.Add(this.addContactBtn, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.viewContactBtn, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.viewEventBtn, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.generateReport, 0, 4);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -182,6 +184,17 @@
             this.viewEventBtn.UseVisualStyleBackColor = true;
             this.viewEventBtn.Click += new System.EventHandler(this.viewEventBtn_Click);
             // 
+            // generateReport
+            // 
+            this.generateReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.generateReport.Location = new System.Drawing.Point(3, 223);
+            this.generateReport.Name = "generateReport";
+            this.generateReport.Size = new System.Drawing.Size(228, 49);
+            this.generateReport.TabIndex = 4;
+            this.generateReport.Text = "Get Prediction";
+            this.generateReport.UseVisualStyleBackColor = true;
+            this.generateReport.Click += new System.EventHandler(this.generateReport_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,5 +222,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button viewContactBtn;
         private System.Windows.Forms.Button viewEventBtn;
+        private System.Windows.Forms.Button generateReport;
     }
 }

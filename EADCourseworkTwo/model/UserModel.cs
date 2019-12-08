@@ -22,9 +22,48 @@ namespace EADCourseworkTwo
         }
 
         //Register user method
-        public void addUser(User user)
+        public Boolean addUser(User user)
         {
+            string queryStringEvent = "INSERT INTO Users (UserName, Password, FirstName, LastName, Email) " +
+                                     "Values (@param1, @param2, @param3, @param4, @param5)";
 
+            using (sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlTransaction transaction = sqlConnection.BeginTransaction();
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryStringEvent, sqlConnection, transaction)
+                    {
+                        CommandType = CommandType.Text,
+                        Connection = sqlConnection
+                    };
+
+                    sqlCommand.Parameters.AddWithValue("@param1", user.UserName);
+                    sqlCommand.Parameters.AddWithValue("@param2", user.Password);
+                    sqlCommand.Parameters.AddWithValue("@param3", user.FirstName);
+                    sqlCommand.Parameters.AddWithValue("@param4", user.LastName);
+                    sqlCommand.Parameters.AddWithValue("@param5", user.Email);
+
+                    int rowsAdded = sqlCommand.ExecuteNonQuery();
+
+                    transaction.Commit();
+
+                    if (rowsAdded > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return false;
+                }
+            }
         }
 
         //Validate user for Login
@@ -83,14 +122,5 @@ namespace EADCourseworkTwo
             }
             return user;
         }
-
-        //Get all the upcoming Events' data
-        public void getEventData()
-        {
-
-        }
     }
-
-    
-
 }
