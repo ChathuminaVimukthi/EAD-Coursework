@@ -22,12 +22,18 @@ namespace EADCourseworkTwo
 
         private void homeBtn_Click(object sender, EventArgs e)
         {
-
+            HomeForm homeForm = new HomeForm(loggedInUser);
+            this.Hide();
+            homeForm.Show();
+            this.Close();
         }
 
         private void addContact_Click(object sender, EventArgs e)
         {
-
+            AddContactForm addContactForm = new AddContactForm(loggedInUser);
+            this.Hide();
+            addContactForm.Show();
+            this.Close();
         }
 
         private void generateEventsButn_Click(object sender, EventArgs e)
@@ -69,14 +75,95 @@ namespace EADCourseworkTwo
 
                         if(recurringflag == 1)
                         {
-                            for(int i = 0; i < addEventControl.RecurringAmount; i++)
+                            Boolean validate = false;
+                            Boolean validate1 = false;
+                            for (int x = 0; x < addEventControl.RecurringAmount; x++)
                             {
-                                
+                                Event evnt = new Event();
+                                evnt.EventTitle = title;
+                                evnt.EventDescription = description;
+                                evnt.StartingDateTime = startingTime.AddDays(x);
+                                evnt.EndingDateTime = endingTime.AddDays(x);
+                                evnt.EventFlag = eventFlag;
+                                evnt.RecurringFlag = recurringflag;
+                                evnt.Location = location;
+                                evnt.UserId = loggedInUser.UserId;
+                                evnt.RecurringId = recurringId;
+                                evnt.ContactList = contactList;
+                                validate = eventModel.addEvent(evnt);
+                                if (addEventControl.IsContactsSet)
+                                {
+                                    validate1 = eventModel.addContactsSelected(evnt);
+                                }
+                            }
+                            if (addEventControl.IsContactsSet)
+                            {
+                                if (validate && validate1)
+                                {
+                                    MessageBox.Show("Event Saved Successfully!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Database connection failed.Try again !");
+                                }
+                            }
+                            else
+                            {
+                                if (validate)
+                                {
+                                    MessageBox.Show("Event Saved Successfully!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Database connection failed.Try again !");
+                                }
                             }
                         }
                         if(recurringflag == 2)
                         {
-
+                            Boolean validate = false;
+                            Boolean validate1 = false;
+                            for (int x = 0; x < addEventControl.RecurringAmount; x++)
+                            {
+                                Event evnt = new Event();
+                                evnt.EventTitle = title;
+                                evnt.EventDescription = description;
+                                evnt.StartingDateTime = startingTime.AddDays(30*x);
+                                evnt.EndingDateTime = endingTime.AddDays(30*x);
+                                evnt.EventFlag = eventFlag;
+                                evnt.RecurringFlag = recurringflag;
+                                evnt.Location = location;
+                                evnt.UserId = loggedInUser.UserId;
+                                evnt.RecurringId = recurringId;
+                                evnt.ContactList = contactList;
+                                validate = eventModel.addEvent(evnt);
+                                if (addEventControl.IsContactsSet)
+                                {
+                                    validate1 = eventModel.addContactsSelected(evnt);
+                                }
+                            }
+                            if (addEventControl.IsContactsSet)
+                            {
+                                if (validate && validate1)
+                                {
+                                    MessageBox.Show("Event Saved Successfully!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Database connection failed.Try again !");
+                                }
+                            }
+                            else
+                            {
+                                if (validate)
+                                {
+                                    MessageBox.Show("Event Saved Successfully!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Database connection failed.Try again !");
+                                }
+                            }
                         }
                         if(recurringflag == 3)
                         {
