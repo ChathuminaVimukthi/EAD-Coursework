@@ -87,15 +87,15 @@ namespace EADCourseworkTwo
         {
             HomeForm homeForm = new HomeForm(loggedinUser);
             this.Hide();
-            homeForm.Show();
+            homeForm.ShowDialog();
             this.Close();
         }
 
         private void addEvent_Click(object sender, EventArgs e)
         {
-            AddEventForm addEventForm = new AddEventForm(loggedinUser);
+            AddEventsForm addEventForm = new AddEventsForm(loggedinUser);
             this.Hide();
-            addEventForm.Show();
+            addEventForm.ShowDialog();
             this.Close();
         }
 

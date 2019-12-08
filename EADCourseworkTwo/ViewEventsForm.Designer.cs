@@ -151,7 +151,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(548, 44);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Event List";
+            this.label1.Text = "UpComing Event List";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ViewEventsForm
@@ -160,8 +160,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ViewEventsForm";
-            this.Text = "ViewEventsForm";
+            this.Text = "Impresario";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);

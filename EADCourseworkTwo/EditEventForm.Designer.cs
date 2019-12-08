@@ -470,7 +470,7 @@
             this.addEventBtn.Name = "addEventBtn";
             this.addEventBtn.Size = new System.Drawing.Size(162, 55);
             this.addEventBtn.TabIndex = 14;
-            this.addEventBtn.Text = "Add Event";
+            this.addEventBtn.Text = "Update Event";
             this.addEventBtn.UseVisualStyleBackColor = true;
             this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
             // 
@@ -517,8 +517,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 527);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditEventForm";
-            this.Text = "EditEventForm";
+            this.Text = "Impresario";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);

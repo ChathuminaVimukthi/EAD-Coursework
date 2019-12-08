@@ -38,8 +38,9 @@ namespace EADCourseworkTwo
                 else
                 {
                     HomeForm homeForm = new HomeForm(userModel.getUser(userName));
-
-                    homeForm.Show();
+                    this.Hide();
+                    homeForm.ShowDialog();
+                    this.Close();
                 }
             }
         }

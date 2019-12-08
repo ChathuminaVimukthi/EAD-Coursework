@@ -31,7 +31,9 @@ namespace EADCourseworkTwo
                 ContactControl contactControl = (ContactControl)tableLayoutPanel1.Parent;
                 int id = contactControl.Id;
                 EditContactForm editContactForm = new EditContactForm(loggedInUser,id);
-                editContactForm.Show();
+                this.Hide();
+                editContactForm.ShowDialog();
+                this.Close();
             }
         }
 
@@ -92,7 +94,7 @@ namespace EADCourseworkTwo
         {
             AddContactForm addContactForm = new AddContactForm(loggedInUser);
             this.Hide();
-            addContactForm.Show();
+            addContactForm.ShowDialog();
             this.Close();
         }
 
@@ -100,7 +102,7 @@ namespace EADCourseworkTwo
         {
             HomeForm homeForm = new HomeForm(loggedInUser);
             this.Hide();
-            homeForm.Show();
+            homeForm.ShowDialog();
             this.Close();
         }
     }

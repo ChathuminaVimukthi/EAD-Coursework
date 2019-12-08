@@ -39,21 +39,27 @@ namespace EADCourseworkTwo
 
             EventModel eventModel = new EventModel();
             IList<Event> eventList = eventModel.getAllEventDetails(logedInUser.UserId);
-            if(eventList.Count> 0)
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("HH:mm");
+            string date = dateTime.ToString("yyyy-MM-dd");
+            DateTime currentDateTime = DateTime.Parse(date + " " + time);
+            foreach (Event evnt in eventList)
             {
-                isSetEvents = true;
+                if (eventList.Count > 0)
+                {
+                    if(evnt.StartingDateTime > currentDateTime)
+                    {
+                        isSetEvents = true;
+                        break;
+                    }
+                }
             }
+            
         }
 
         private void populateTableLayout(User user)
         {
-            Label labelMonth = new Label();
-            labelMonth.Text = "December";
-            labelMonth.ForeColor = Color.Black;
-            labelMonth.BackColor = Color.White;
-            labelMonth.TextAlign = ContentAlignment.MiddleCenter;
-            tableLayoutPanel2.Controls.Add(labelMonth, 0, 0);
-            labelMonth.Dock = DockStyle.Fill;
+            label1.Text = DateTime.Now.ToString("MMMM");
 
             string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             for(int i = 0; i < tableLayoutPanel3.ColumnCount; i++)
@@ -120,7 +126,7 @@ namespace EADCourseworkTwo
         {
             AddContactForm addContactForm = new AddContactForm(logedInUser);
             this.Hide();
-            addContactForm.Show();
+            addContactForm.ShowDialog();
             this.Close();
         }
 
@@ -132,7 +138,9 @@ namespace EADCourseworkTwo
             this.Close();*/
 
             AddEventsForm addEventsForm = new AddEventsForm(logedInUser);
-            addEventsForm.Show();
+            this.Hide();
+            addEventsForm.ShowDialog();
+            this.Close();
         }
 
         private void viewContactBtn_Click(object sender, EventArgs e)
@@ -141,7 +149,7 @@ namespace EADCourseworkTwo
             {
                 ViewContactListForm viewContactListForm = new ViewContactListForm(logedInUser);
                 this.Hide();
-                viewContactListForm.Show();
+                viewContactListForm.ShowDialog();
                 this.Close();
             }
             else
@@ -157,7 +165,7 @@ namespace EADCourseworkTwo
             {
                 ViewEventsForm viewEventsForm = new ViewEventsForm(logedInUser);
                 this.Hide();
-                viewEventsForm.Show();
+                viewEventsForm.ShowDialog();
                 this.Close();
             }
             else
@@ -169,7 +177,9 @@ namespace EADCourseworkTwo
         private void generateReport_Click(object sender, EventArgs e)
         {
             ReportForm reportForm = new ReportForm(logedInUser);
-            reportForm.Show();
+            this.Hide();
+            reportForm.ShowDialog();
+            this.Close();
         }
     }
 }

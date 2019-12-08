@@ -86,7 +86,7 @@ namespace EADCourseworkTwo
         {
             HomeForm homeForm = new HomeForm(loggedInUser);
             this.Hide();
-            homeForm.Show();
+            homeForm.ShowDialog();
             this.Close();
         }
 
@@ -128,6 +128,11 @@ namespace EADCourseworkTwo
             }
             finally { sw.Close(); }
             return 1;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

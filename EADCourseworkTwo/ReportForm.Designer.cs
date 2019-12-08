@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.homeBtn = new System.Windows.Forms.Button();
-            this.addContact = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -87,7 +86,6 @@
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Controls.Add(this.homeBtn, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.addContact, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -114,16 +112,6 @@
             this.homeBtn.Text = "Go to Home";
             this.homeBtn.UseVisualStyleBackColor = true;
             this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
-            // 
-            // addContact
-            // 
-            this.addContact.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addContact.Location = new System.Drawing.Point(3, 52);
-            this.addContact.Name = "addContact";
-            this.addContact.Size = new System.Drawing.Size(228, 43);
-            this.addContact.TabIndex = 1;
-            this.addContact.Text = "Add Contact";
-            this.addContact.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -192,6 +180,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 3);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
@@ -204,6 +193,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(3, 50);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
@@ -216,6 +206,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(3, 144);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
@@ -228,6 +219,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(3, 97);
             this.label5.Margin = new System.Windows.Forms.Padding(3);
             this.label5.Name = "label5";
@@ -240,6 +232,7 @@
             // 
             this.totalNumberOfEventsLbl.AutoSize = true;
             this.totalNumberOfEventsLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.totalNumberOfEventsLbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.totalNumberOfEventsLbl.Location = new System.Drawing.Point(167, 3);
             this.totalNumberOfEventsLbl.Margin = new System.Windows.Forms.Padding(3);
             this.totalNumberOfEventsLbl.Name = "totalNumberOfEventsLbl";
@@ -252,6 +245,7 @@
             // 
             this.totalTimePastEvntLbl.AutoSize = true;
             this.totalTimePastEvntLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.totalTimePastEvntLbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.totalTimePastEvntLbl.Location = new System.Drawing.Point(167, 50);
             this.totalTimePastEvntLbl.Margin = new System.Windows.Forms.Padding(3);
             this.totalTimePastEvntLbl.Name = "totalTimePastEvntLbl";
@@ -264,6 +258,7 @@
             // 
             this.timeUsagePerEventLbl.AutoSize = true;
             this.timeUsagePerEventLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeUsagePerEventLbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.timeUsagePerEventLbl.Location = new System.Drawing.Point(167, 97);
             this.timeUsagePerEventLbl.Margin = new System.Windows.Forms.Padding(3);
             this.timeUsagePerEventLbl.Name = "timeUsagePerEventLbl";
@@ -276,6 +271,7 @@
             // 
             this.timeUsagePerWeekLbl.AutoSize = true;
             this.timeUsagePerWeekLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeUsagePerWeekLbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.timeUsagePerWeekLbl.Location = new System.Drawing.Point(167, 144);
             this.timeUsagePerWeekLbl.Margin = new System.Windows.Forms.Padding(3);
             this.timeUsagePerWeekLbl.Name = "timeUsagePerWeekLbl";
@@ -301,6 +297,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(3, 244);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
@@ -308,11 +305,13 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Predicted time usage for up coming month";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // predictionLabel
             // 
             this.predictionLabel.AutoSize = true;
             this.predictionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.predictionLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.predictionLabel.Location = new System.Drawing.Point(167, 244);
             this.predictionLabel.Margin = new System.Windows.Forms.Padding(3);
             this.predictionLabel.Name = "predictionLabel";
@@ -338,8 +337,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ReportForm";
-            this.Text = "ReportForm";
+            this.Text = "Impresario";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -357,7 +357,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Button homeBtn;
-        private System.Windows.Forms.Button addContact;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

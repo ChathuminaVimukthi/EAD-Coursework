@@ -83,22 +83,11 @@ namespace EADCourseworkTwo
             }
         }
 
-
-
-        private void contactListBtn_Click(object sender, EventArgs e)
-        {
-            ViewContactListForm viewContactListForm = new ViewContactListForm(loggedInUser);
-            this.Hide();
-            viewContactListForm.Show();
-            this.Close();
-
-        }
-
         private void homeBtn_Click(object sender, EventArgs e)
         {
             HomeForm homeForm = new HomeForm(loggedInUser);
             this.Hide();
-            homeForm.Show();
+            homeForm.ShowDialog();
             this.Close();
         }
 
@@ -106,7 +95,7 @@ namespace EADCourseworkTwo
         {
             ViewContactListForm viewContactListForm = new ViewContactListForm(loggedInUser);
             this.Hide();
-            viewContactList.Show();
+            viewContactListForm.ShowDialog();
             this.Close();
         }
     }

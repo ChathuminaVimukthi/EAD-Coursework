@@ -317,7 +317,7 @@ namespace EADCourseworkTwo
         {
             AddContactForm addContactForm = new AddContactForm(loggedInUser);
             this.Hide();
-            addContactForm.Show();
+            addContactForm.ShowDialog();
             this.Close();
         }
 
@@ -325,7 +325,7 @@ namespace EADCourseworkTwo
         {
             HomeForm homeForm = new HomeForm(loggedInUser);
             this.Hide();
-            homeForm.Show();
+            homeForm.ShowDialog();
             this.Close();
         }
     }

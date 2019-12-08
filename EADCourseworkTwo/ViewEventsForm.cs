@@ -96,7 +96,9 @@ namespace EADCourseworkTwo
                 EventControl eventControl = (EventControl)tableLayoutPanel1.Parent;
                 EventModel eventModel = new EventModel();
                 EditEventForm editEventForm = new EditEventForm(eventModel.getSingleEvent(eventControl.EventId),loggedInUser);
-                editEventForm.Show();
+                this.Hide();
+                editEventForm.ShowDialog();
+                this.Close();
             }
         }
 
@@ -104,33 +106,40 @@ namespace EADCourseworkTwo
         {
             EventModel eventModel = new EventModel();
             IList<Event> eventList = eventModel.getAllEventDetails(loggedInUser.UserId);
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("HH:mm");
+            string date = dateTime.ToString("yyyy-MM-dd");
+            DateTime currentDateTime = DateTime.Parse(date + " " + time);
 
             foreach (Event evnt in eventList)
             {
-                EventControl  eventControl = new EventControl();
-
-                if (evnt.RecurringFlag == 1 || evnt.RecurringFlag == 2)
+                if(evnt.StartingDateTime > currentDateTime)
                 {
-                    eventControl.editEvntBtn.Visible = false;
-                    eventControl.IsRecurring = true;
-                    eventControl.BackColor = ColorTranslator.FromHtml("#706fd3");
-                }
-                else if (evnt.RecurringFlag == 3)
-                {
-                    eventControl.IsRecurring = false;
-                    eventControl.BackColor = ColorTranslator.FromHtml("#33d9b2");
-                }
+                    EventControl eventControl = new EventControl();
 
-                eventControl.Title = evnt.EventTitle;
-                eventControl.Description = evnt.EventDescription;
-                eventControl.StartingTime = evnt.StartingDateTime.ToString();
-                eventControl.EndingTime = evnt.EndingDateTime.ToString();
-                eventControl.EventId = evnt.EventId;
-                eventControl.EventType = evnt.EventFlag;
-                eventControl.RecurringId = evnt.RecurringId;
-                eventControl.dltEvntbtn.Click += DeleteBtn_Click;
-                eventControl.editEvntBtn.Click += EditBtn_Click;
-                flowLayoutPanel1.Controls.Add(eventControl);
+                    if (evnt.RecurringFlag == 1 || evnt.RecurringFlag == 2)
+                    {
+                        eventControl.editEvntBtn.Visible = false;
+                        eventControl.IsRecurring = true;
+                        eventControl.BackColor = ColorTranslator.FromHtml("#706fd3");
+                    }
+                    else if (evnt.RecurringFlag == 3)
+                    {
+                        eventControl.IsRecurring = false;
+                        eventControl.BackColor = ColorTranslator.FromHtml("#33d9b2");
+                    }
+
+                    eventControl.Title = evnt.EventTitle;
+                    eventControl.Description = evnt.EventDescription;
+                    eventControl.StartingTime = evnt.StartingDateTime.ToString();
+                    eventControl.EndingTime = evnt.EndingDateTime.ToString();
+                    eventControl.EventId = evnt.EventId;
+                    eventControl.EventType = evnt.EventFlag;
+                    eventControl.RecurringId = evnt.RecurringId;
+                    eventControl.dltEvntbtn.Click += DeleteBtn_Click;
+                    eventControl.editEvntBtn.Click += EditBtn_Click;
+                    flowLayoutPanel1.Controls.Add(eventControl);
+                }
             }
         }
 
@@ -138,15 +147,15 @@ namespace EADCourseworkTwo
         {
             HomeForm homeForm = new HomeForm(loggedInUser);
             this.Hide();
-            homeForm.Show();
+            homeForm.ShowDialog();
             this.Close();
         }
 
         private void addEvent_Click(object sender, EventArgs e)
         {
-            AddEventForm addEventForm = new AddEventForm(loggedInUser);
+            AddEventsForm addEventForm = new AddEventsForm(loggedInUser);
             this.Hide();
-            addEventForm.Show();
+            addEventForm.ShowDialog();
             this.Close();
         }
     }
