@@ -126,10 +126,13 @@ namespace EADCourseworkTwo
 
         private void addEventBtn_Click(object sender, EventArgs e)
         {
-            AddEventForm addEventForm = new AddEventForm(logedInUser);
+            /*AddEventForm addEventForm = new AddEventForm(logedInUser);
             this.Hide();
             addEventForm.Show();
-            this.Close();
+            this.Close();*/
+
+            AddEventsForm addEventsForm = new AddEventsForm(logedInUser);
+            addEventsForm.Show();
         }
 
         private void viewContactBtn_Click(object sender, EventArgs e)

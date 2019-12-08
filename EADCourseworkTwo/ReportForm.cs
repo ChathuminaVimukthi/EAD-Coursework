@@ -20,6 +20,7 @@ namespace EADCourseworkTwo
         double totalTimeUsageForEvents = 0;
         double averageTimeUsagePerEvent = 0;
         double totalNumberOfweeks = 0;
+        double numberOfEventsPerWeek = 0;
         double timeUsagePerWeek = 0;
         double timeUsagePerMonth = 0;
 
@@ -63,11 +64,9 @@ namespace EADCourseworkTwo
 
             averageTimeUsagePerEvent = totalTimeUsageForEvents / totalNumOfEvents;
 
-            double dateRange = (currentDateTime - pastEventList.FirstOrDefault().StartingDateTime).TotalDays;
-
             totalNumberOfweeks = (currentDateTime - pastEventList.FirstOrDefault().StartingDateTime).TotalDays / 7;
 
-            double numberOfEventsPerWeek = totalNumOfEvents / totalNumberOfweeks;
+            numberOfEventsPerWeek = totalNumOfEvents / totalNumberOfweeks;
 
             timeUsagePerWeek = numberOfEventsPerWeek * averageTimeUsagePerEvent;
 
@@ -90,33 +89,45 @@ namespace EADCourseworkTwo
             homeForm.Show();
             this.Close();
         }
-        /*
-private void printReport_Click(object sender, EventArgs e)
-{
-  if (DialogResult.Yes == MessageBox.Show("Do you want to Print Report?", "", MessageBoxButtons.YesNo))
-  {
-      ThreadStart myThreadStart = new ThreadStart(FileWrite);
 
-      Thread fileWriteThread = new Thread(myThreadStart);
+        private async void generateReportBtn_ClickAsync(object sender, EventArgs e)
+        {
+            var time = await Task.Run(() => this.writeFile());
+            MessageBox.Show("File Generated Successfully");
+        }
 
-      fileWriteThread.Start();
-  }
-}
+        private int writeFile()
+        {
+            StreamWriter sw = new StreamWriter("ImpresarioReport.dat", false, Encoding.UTF8);
+            try
+            {
+                sw.WriteLine("Today is : " + DateTime.Now + "\n" + "Name :" + loggedInUser.UserName + "\n\n");
+                sw.WriteLine("--------------PREDICTION RESULT-------------");
 
-public void FileWrite()
-{
-  double avarageTime = getEventData();
+                sw.WriteLine("\n\n");
+                sw.WriteLine("\n");
+                sw.WriteLine("Number Of Past Events     |  " + Convert.ToString(totalNumOfEvents));
+                sw.WriteLine("\n");
+                sw.WriteLine("\n");
+                sw.WriteLine("Average time usage per Event   |  " + Convert.ToString(Convert.ToInt32(averageTimeUsagePerEvent) / 60) + ":" + Convert.ToString(Convert.ToInt32(averageTimeUsagePerEvent) % 60) + "  Hours/event");
+                sw.WriteLine("\n");
+                sw.WriteLine("\n");
+                sw.WriteLine("Average Events per Week   |  " + Convert.ToString(numberOfEventsPerWeek) + "  Events/Week");
+                sw.WriteLine("\n");
+                sw.WriteLine("\n");
+                sw.WriteLine("Time Usage Per Week   |  " + Convert.ToString(Convert.ToInt32(timeUsagePerWeek) / 60) + ":" + Convert.ToString(Convert.ToInt32(timeUsagePerWeek) % 60) + "  Hours/Week");
+                sw.WriteLine("\n");
+                sw.WriteLine("\n");
+                sw.WriteLine("***Average Hours per Month   |  " + totalHours + ":" + totalMinutes + "  Hours/Month");
+                sw.WriteLine("\n");
 
-  String myDesktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-  FileStream file = new FileStream(myDesktop + "\\TimePrediction.txt", FileMode.OpenOrCreate, FileAccess.Write);
-
-  StreamWriter sw = new StreamWriter(file);
-
-  sw.Write("Following Four Week Time Usage Avarage: " + avarageTime);
-
-  sw.Close();
-  file.Close();
-
-}*/
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("File Write Error");
+            }
+            finally { sw.Close(); }
+            return 1;
+        }
     }
 }

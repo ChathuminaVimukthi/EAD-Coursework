@@ -22,7 +22,7 @@ namespace EADCourseworkTwo
             InitializeComponent();
             loggedInUser = user;
             this.tableLayoutPanel2.CellPaint += tableLayoutPane2_CellPaint;
-            //this.startDatePicker.MinDate = DateTime.Now;
+            this.startDatePicker.MinDate = DateTime.Now;
             this.endDatePicker.MinDate = DateTime.Now;
             populateCheckedList();
             this.startTimePicker.CustomFormat = "HH:mm";

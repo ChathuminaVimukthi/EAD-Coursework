@@ -40,13 +40,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.totalNumberOfEventsLbl = new System.Windows.Forms.Label();
             this.totalTimePastEvntLbl = new System.Windows.Forms.Label();
             this.timeUsagePerEventLbl = new System.Windows.Forms.Label();
             this.timeUsagePerWeekLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.predictionLabel = new System.Windows.Forms.Label();
+            this.generateReportBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -171,6 +172,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label6, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel3.Controls.Add(this.predictionLabel, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.generateReportBtn, 0, 7);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 47);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -234,19 +236,6 @@
             this.label5.Text = "Average time usage per event";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(167, 191);
-            this.label6.Margin = new System.Windows.Forms.Padding(3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(378, 47);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Prediction based on Past Event Data";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // totalNumberOfEventsLbl
             // 
             this.totalNumberOfEventsLbl.AutoSize = true;
@@ -295,6 +284,19 @@
             this.timeUsagePerWeekLbl.Text = "label10";
             this.timeUsagePerWeekLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(167, 191);
+            this.label6.Margin = new System.Windows.Forms.Padding(3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(378, 47);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Prediction based on Past Event Data";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -318,6 +320,17 @@
             this.predictionLabel.TabIndex = 10;
             this.predictionLabel.Text = "label8";
             this.predictionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // generateReportBtn
+            // 
+            this.generateReportBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.generateReportBtn.Location = new System.Drawing.Point(3, 349);
+            this.generateReportBtn.Name = "generateReportBtn";
+            this.generateReportBtn.Size = new System.Drawing.Size(158, 42);
+            this.generateReportBtn.TabIndex = 11;
+            this.generateReportBtn.Text = "Generate Report";
+            this.generateReportBtn.UseVisualStyleBackColor = true;
+            this.generateReportBtn.Click += new System.EventHandler(this.generateReportBtn_ClickAsync);
             // 
             // ReportForm
             // 
@@ -359,5 +372,6 @@
         private System.Windows.Forms.Label timeUsagePerWeekLbl;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label predictionLabel;
+        private System.Windows.Forms.Button generateReportBtn;
     }
 }
