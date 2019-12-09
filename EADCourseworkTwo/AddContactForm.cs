@@ -37,12 +37,6 @@ namespace EADCourseworkTwo
                 if(name == "")
                 {
                     MessageBox.Show("User Name cannot be empty !");
-                }else if(email == "")
-                {
-
-                }else if(contactNumber == 0)
-                {
-
                 }
                 else
                 {
@@ -56,6 +50,7 @@ namespace EADCourseworkTwo
                     Boolean isInserted = contactModel.addContact(contact);
                     if (isInserted)
                     {
+                        ClearTextBoxes();
                         MessageBox.Show("Contact saved !");
                     }
                     else

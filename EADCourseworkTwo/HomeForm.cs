@@ -154,7 +154,7 @@ namespace EADCourseworkTwo
                         }
                         else
                         {
-                            //toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
+                            toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
                             label.BackColor = ColorTranslator.FromHtml("#40407a");
                             label.ForeColor = Color.White;
                         }

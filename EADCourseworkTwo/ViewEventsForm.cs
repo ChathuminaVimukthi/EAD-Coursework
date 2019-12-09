@@ -130,7 +130,7 @@ namespace EADCourseworkTwo
                     }
 
                     eventControl.Title = evnt.EventTitle;
-                    eventControl.Description = evnt.EventDescription;
+                    eventControl.Description = evnt.EventDescription +" at "+evnt.Location;
                     eventControl.StartingTime = evnt.StartingDateTime.ToString();
                     eventControl.EndingTime = evnt.EndingDateTime.ToString();
                     eventControl.EventId = evnt.EventId;

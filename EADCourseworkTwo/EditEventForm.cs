@@ -169,7 +169,6 @@ namespace EADCourseworkTwo
                         validate1 = eventModel.updateContactsSelected(evnt);
                         if (validate && validate1)
                         {
-                            ClearTextBoxes();
                             MessageBox.Show("Event Saved Successfully!");
                         }
                         else
@@ -181,7 +180,6 @@ namespace EADCourseworkTwo
                     {
                         if (validate)
                         {
-                            ClearTextBoxes();
                             MessageBox.Show("Event Saved Successfully!");
                         }
                         else
@@ -193,21 +191,6 @@ namespace EADCourseworkTwo
             }
         }
 
-        private void ClearTextBoxes()
-        {
-            Action<Control.ControlCollection> func = null;
-
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is TextBox)
-                        (control as TextBox).Clear();
-                    else
-                        func(control.Controls);
-            };
-
-            func(Controls);
-        }
         private Boolean validateEnteredDate(DateTime startDateTime, DateTime endDateTime)
         {
             EventModel eventModel = new EventModel();
