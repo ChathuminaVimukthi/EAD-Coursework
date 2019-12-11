@@ -119,12 +119,12 @@ namespace EADCourseworkTwo
                     {
                         if (ev.RecurringFlag == 3)
                         {
-                            toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
+                            toolTip1.SetToolTip(label, ev.EventTitle + " in " + ev.Location + " at " + ev.StartingDateTime.ToString("HH:mm"));
                             label.BackColor = ColorTranslator.FromHtml("#ff5252");
                         }
                         else
                         {
-                            toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
+                            toolTip1.SetToolTip(label, ev.EventTitle + " in " + ev.Location + " at " + ev.StartingDateTime.ToString("HH:mm"));
                             label.BackColor = ColorTranslator.FromHtml("#40407a");
                             label.ForeColor = Color.White;
                         }
@@ -149,12 +149,12 @@ namespace EADCourseworkTwo
                     {
                         if(ev.RecurringFlag == 3)
                         {
-                            toolTip1.SetToolTip(label, ev.EventTitle+" at "+ev.Location);
+                            toolTip1.SetToolTip(label, ev.EventTitle + " in " + ev.Location + " at " + ev.StartingDateTime.ToString("HH:mm"));
                             label.BackColor = ColorTranslator.FromHtml("#ff5252");
                         }
                         else
                         {
-                            toolTip1.SetToolTip(label, ev.EventTitle + " at " + ev.Location);
+                            toolTip1.SetToolTip(label, ev.EventTitle + " in " + ev.Location + " at " + ev.StartingDateTime.ToString("HH:mm"));
                             label.BackColor = ColorTranslator.FromHtml("#40407a");
                             label.ForeColor = Color.White;
                         }

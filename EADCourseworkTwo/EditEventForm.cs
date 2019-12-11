@@ -22,6 +22,10 @@ namespace EADCourseworkTwo
         public EditEventForm(Event evnt,User user)
         {
             InitializeComponent();
+            this.startDatePicker.MinDate = DateTime.Now;
+            this.endDatePicker.MinDate = DateTime.Now;
+            this.startTimePicker.MinDate = DateTime.Now;
+            this.endTimePicker.MinDate = DateTime.Now;
             evntToEdit = evnt;
             loggedInUser = user;
             this.tableLayoutPanel2.CellPaint += tableLayoutPane2_CellPaint;
@@ -81,24 +85,14 @@ namespace EADCourseworkTwo
                 checkedListBox1.Visible = false;
                 isSetContacts = false;
                 System.Windows.Forms.Label infoLabel = new System.Windows.Forms.Label();
-                infoLabel.Text = "There are no contacts added! Click here to add Contacts";
+                infoLabel.Text = "There are no contacts added!";
                 infoLabel.Margin = new Padding(3, 3, 3, 3);
                 infoLabel.ForeColor = ColorTranslator.FromHtml("#b33939");
                 infoLabel.BackColor = ColorTranslator.FromHtml("#f7f1e3");
                 infoLabel.TextAlign = ContentAlignment.MiddleCenter;
                 infoLabel.Font = new Font("Arial", 12, FontStyle.Bold); ;
-                infoLabel.Click += this.ShowContactForm;
-                this.tableLayoutPanel2.Controls.Add(infoLabel, 1, 4);
+                this.tableLayoutPanel2.Controls.Add(infoLabel, 1, 5);
                 infoLabel.Dock = DockStyle.Fill;
-            }
-        }
-
-        private void ShowContactForm(object sender, EventArgs e)
-        {
-            if (sender is System.Windows.Forms.Label)
-            {
-                AddContactForm addContactForm = new AddContactForm(loggedInUser);
-                addContactForm.Show();
             }
         }
 

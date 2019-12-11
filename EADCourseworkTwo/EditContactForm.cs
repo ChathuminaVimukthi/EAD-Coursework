@@ -31,12 +31,13 @@ namespace EADCourseworkTwo
             addContact.ContactName = contact.ContactName;
             addContact.ContactNumber = contact.ContactNumber;
             addContact.Email = contact.Email;
+            addContact.BackColor = ColorTranslator.FromHtml("#706fd3");
             addContact.saveContact.Text = "Update";
             addContact.saveContact.Click += SaveButton_Click;
 
             tableLayoutPanel2.Controls.Add(addContact, 0, 1  );
         }
-
+            
         public void SaveButton_Click(object sender, EventArgs e)
         {
             if (sender is Button)
@@ -50,15 +51,12 @@ namespace EADCourseworkTwo
 
                 if (name == "")
                 {
-                    MessageBox.Show("User Name cannot be empty !");
                 }
                 else if (email == "")
                 {
-                    MessageBox.Show("Enter valid Email Address !");
                 }
                 else if (contactNumber == 0)
                 {
-                    MessageBox.Show("Enter valid Mobile Number !");
                 }
                 else
                 {
@@ -73,7 +71,6 @@ namespace EADCourseworkTwo
                     Boolean isUpdated = contactModel.updateContact(contact);
                     if (isUpdated)
                     {
-                        ClearTextBoxes();
                         MessageBox.Show("Contact Updated !");
                     }
                     else

@@ -36,7 +36,6 @@ namespace EADCourseworkTwo
 
                 if(name == "")
                 {
-                    MessageBox.Show("User Name cannot be empty !");
                 }
                 else
                 {

@@ -79,7 +79,7 @@ namespace EADCourseworkTwo
                 foreach(DataRow row in dataTable.Rows)
                 {
                     string pass = row["Password"].ToString();
-                    if(pass.Equals(password))
+                    if (PasswordHandler.Validate(password,pass))
                     {
                         return true;
                     }

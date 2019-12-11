@@ -118,7 +118,7 @@
             this.contactNameTxtBox.Location = new System.Drawing.Point(136, 10);
             this.contactNameTxtBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.contactNameTxtBox.Name = "contactNameTxtBox";
-            this.contactNameTxtBox.Size = new System.Drawing.Size(306, 20);
+            this.contactNameTxtBox.Size = new System.Drawing.Size(274, 20);
             this.contactNameTxtBox.TabIndex = 4;
             // 
             // numberTxtBox
@@ -126,19 +126,16 @@
             this.numberTxtBox.Location = new System.Drawing.Point(136, 49);
             this.numberTxtBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.numberTxtBox.Name = "numberTxtBox";
-            this.numberTxtBox.Size = new System.Drawing.Size(306, 20);
+            this.numberTxtBox.Size = new System.Drawing.Size(274, 20);
             this.numberTxtBox.TabIndex = 5;
             this.numberTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numTextBox_KeyPress);
             // 
             // emailTxtBox
             // 
-            this.emailTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.emailTxtBox.Location = new System.Drawing.Point(136, 88);
             this.emailTxtBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.emailTxtBox.Name = "emailTxtBox";
-            this.emailTxtBox.Size = new System.Drawing.Size(306, 20);
+            this.emailTxtBox.Size = new System.Drawing.Size(274, 20);
             this.emailTxtBox.TabIndex = 6;
             // 
             // appointmentsDataSet1
@@ -148,6 +145,7 @@
             // 
             // errorProvider
             // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
             // AddContact

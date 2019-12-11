@@ -26,7 +26,15 @@ namespace EADCourseworkTwo
             }
             get
             {
-                return this.contactNameTxtBox.Text;
+                if (this.contactNameTxtBox.Text == "")
+                {
+                    errorProvider.SetError(contactNameTxtBox, "Contact name cannot be empty");
+                    return "";
+                }
+                else
+                {
+                    return this.contactNameTxtBox.Text;
+                }
             }
         }
 
@@ -51,7 +59,7 @@ namespace EADCourseworkTwo
                 }
                 else
                 {
-                    MessageBox.Show("Mobile number format is wrong !");
+                    errorProvider.SetError(numberTxtBox, "Number format is wrong");
                     return 0;
                 }
             }
@@ -71,7 +79,7 @@ namespace EADCourseworkTwo
                 }
                 else
                 {
-                    MessageBox.Show("Email is incorrect !");
+                    errorProvider.SetError(emailTxtBox, "Email is incorrect");
                     return "";
                 }
             }

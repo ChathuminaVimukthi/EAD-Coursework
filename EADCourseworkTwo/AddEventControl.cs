@@ -25,6 +25,8 @@ namespace EADCourseworkTwo
            // this.tableLayoutPanel2.CellPaint += tableLayoutPane2_CellPaint;
             this.startDatePicker.MinDate = DateTime.Now;
             this.endDatePicker.MinDate = DateTime.Now;
+            this.startTimePicker.MinDate = DateTime.Now;
+            this.endTimePicker.MinDate = DateTime.Now;
             populateCheckedList();
             this.startTimePicker.CustomFormat = "HH:mm";
             this.endTimePicker.CustomFormat = "HH:mm";

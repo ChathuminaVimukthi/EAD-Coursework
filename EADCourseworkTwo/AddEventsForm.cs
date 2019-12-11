@@ -76,98 +76,129 @@ namespace EADCourseworkTwo
                         {
                             Boolean validate = false;
                             Boolean validate1 = false;
-                            for (int x = 0; x < addEventControl.RecurringAmount; x++)
+                            Boolean isDateIsInRange = true;
+                            for(int x = 0; x < addEventControl.RecurringAmount; x++)
                             {
-                                Event evnt = new Event();
-                                evnt.EventTitle = title;
-                                evnt.EventDescription = description;
-                                evnt.StartingDateTime = startingTime.AddDays(x);
-                                evnt.EndingDateTime = endingTime.AddDays(x);
-                                evnt.EventFlag = eventFlag;
-                                evnt.RecurringFlag = recurringflag;
-                                evnt.Location = location;
-                                evnt.UserId = loggedInUser.UserId;
-                                evnt.RecurringId = recurringId;
-                                evnt.ContactList = contactList;
-                                validate = eventModel.addEvent(evnt);
+                                if (validateEnteredDate(startingTime.AddDays(x),endingTime.AddDays(x)))
+                                {
+                                    isDateIsInRange = true;
+                                }
+                                else
+                                {
+                                    isDateIsInRange = false;
+                                    break;
+                                }
+                            }
+
+                            if (isDateIsInRange)
+                            {
+                                for (int x = 0; x < addEventControl.RecurringAmount; x++)
+                                {
+                                    Event evnt = new Event();
+                                    evnt.EventTitle = title;
+                                    evnt.EventDescription = description;
+                                    evnt.StartingDateTime = startingTime.AddDays(x);
+                                    evnt.EndingDateTime = endingTime.AddDays(x);
+                                    evnt.EventFlag = eventFlag;
+                                    evnt.RecurringFlag = recurringflag;
+                                    evnt.Location = location;
+                                    evnt.UserId = loggedInUser.UserId;
+                                    evnt.RecurringId = recurringId;
+                                    evnt.ContactList = contactList;
+                                    validate = eventModel.addEvent(evnt);
+                                    if (addEventControl.IsContactsSet)
+                                    {
+                                        validate1 = eventModel.addContactsSelected(evnt);
+                                    }
+                                }
                                 if (addEventControl.IsContactsSet)
                                 {
-                                    validate1 = eventModel.addContactsSelected(evnt);
-                                }
-                            }
-                            if (addEventControl.IsContactsSet)
-                            {
-                                if (validate && validate1)
-                                {
-                                    addEventControl.Dispose();
-                                    MessageBox.Show("Event Saved Successfully!");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Database connection failed.Try again !");
-                                }
-                            }
-                            else
-                            {
-                                if (validate)
-                                {
-                                    addEventControl.Dispose();
-                                    MessageBox.Show("Event Saved Successfully!");
+                                    if (validate && validate1)
+                                    {
+                                        addEventControl.Dispose();
+                                        MessageBox.Show("Event Saved Successfully!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Database connection failed.Try again !");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Database connection failed.Try again !");
+                                    if (validate)
+                                    {
+                                        addEventControl.Dispose();
+                                        MessageBox.Show("Event Saved Successfully!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Database connection failed.Try again !");
+                                    }
                                 }
                             }
+                            
                         }
                         if(recurringflag == 2)
                         {
                             Boolean validate = false;
                             Boolean validate1 = false;
+                            Boolean isDateIsInRange = true;
                             for (int x = 0; x < addEventControl.RecurringAmount; x++)
                             {
-                                Event evnt = new Event();
-                                evnt.EventTitle = title;
-                                evnt.EventDescription = description;
-                                evnt.StartingDateTime = startingTime.AddDays(30*x);
-                                evnt.EndingDateTime = endingTime.AddDays(30*x);
-                                evnt.EventFlag = eventFlag;
-                                evnt.RecurringFlag = recurringflag;
-                                evnt.Location = location;
-                                evnt.UserId = loggedInUser.UserId;
-                                evnt.RecurringId = recurringId;
-                                evnt.ContactList = contactList;
-                                validate = eventModel.addEvent(evnt);
+                                if (validateEnteredDate(startingTime.AddDays(30*x), endingTime.AddDays(30*x)))
+                                {
+                                    isDateIsInRange = false;
+                                    break;
+                                }
+                            }
+
+                            if (!isDateIsInRange)
+                            {
+                                for (int x = 0; x < addEventControl.RecurringAmount; x++)
+                                {
+                                    Event evnt = new Event();
+                                    evnt.EventTitle = title;
+                                    evnt.EventDescription = description;
+                                    evnt.StartingDateTime = startingTime.AddDays(30 * x);
+                                    evnt.EndingDateTime = endingTime.AddDays(30 * x);
+                                    evnt.EventFlag = eventFlag;
+                                    evnt.RecurringFlag = recurringflag;
+                                    evnt.Location = location;
+                                    evnt.UserId = loggedInUser.UserId;
+                                    evnt.RecurringId = recurringId;
+                                    evnt.ContactList = contactList;
+                                    validate = eventModel.addEvent(evnt);
+                                    if (addEventControl.IsContactsSet)
+                                    {
+                                        addEventControl.Dispose();
+                                        validate1 = eventModel.addContactsSelected(evnt);
+                                    }
+                                }
                                 if (addEventControl.IsContactsSet)
                                 {
-                                    addEventControl.Dispose();
-                                    validate1 = eventModel.addContactsSelected(evnt);
-                                }
-                            }
-                            if (addEventControl.IsContactsSet)
-                            {
-                                if (validate && validate1)
-                                {
-                                    addEventControl.Dispose();
-                                    MessageBox.Show("Event Saved Successfully!");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Database connection failed.Try again !");
-                                }
-                            }
-                            else
-                            {
-                                if (validate)
-                                {
-                                    addEventControl.Dispose();
-                                    MessageBox.Show("Event Saved Successfully!");
+                                    if (validate && validate1)
+                                    {
+                                        addEventControl.Dispose();
+                                        MessageBox.Show("Event Saved Successfully!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Database connection failed.Try again !");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Database connection failed.Try again !");
+                                    if (validate)
+                                    {
+                                        addEventControl.Dispose();
+                                        MessageBox.Show("Event Saved Successfully!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Database connection failed.Try again !");
+                                    }
                                 }
-                            }
+                            }   
                         }
                         if(recurringflag == 3)
                         {
@@ -231,6 +262,57 @@ namespace EADCourseworkTwo
             };
 
             func(Controls);
+        }
+
+        private Boolean validateEnteredDate(DateTime startDateTime, DateTime endDateTime)
+        {
+            EventModel eventModel = new EventModel();
+            IList<Event> evntList = eventModel.getAllEventDetails(loggedInUser.UserId);
+
+            Boolean startInRange = false;
+            Boolean endInRange = false;
+
+            DateTime srtTime = new DateTime();
+            DateTime endTime = new DateTime();
+
+            foreach (Event evnt in evntList)
+            {
+                if (startDateTime >= evnt.StartingDateTime && startDateTime < evnt.EndingDateTime)
+                {
+                    srtTime = evnt.StartingDateTime;
+                    endTime = evnt.EndingDateTime;
+                    startInRange = true;
+                    break;
+                }
+                else
+                {
+                    startInRange = false;
+                    if (endDateTime >= evnt.StartingDateTime && endDateTime < evnt.EndingDateTime)
+                    {
+                        srtTime = evnt.StartingDateTime;
+                        endTime = evnt.EndingDateTime;
+                        endInRange = true;
+                        break;
+                    }
+                    else
+                    {
+                        endInRange = false;
+                    }
+                }
+            }
+
+
+            if (!startInRange && !endInRange)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("There is another event scheduled from " + srtTime.ToString() + " to " + endTime.ToString() +
+                    ". Please select another time range!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
         }
     }
 }

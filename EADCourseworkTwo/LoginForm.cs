@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -52,7 +53,7 @@ namespace EADCourseworkTwo
             {
                 User user = new User();
                 user.UserName = userNameTxtBox.Text;
-                user.Password = regPassTxtBox.Text;
+                user.Password = PasswordHandler.CreatePasswordHash(regPassTxtBox.Text);
                 user.FirstName = firstNameTxtBox.Text;
                 user.LastName = lastNameTxtBox.Text;
                 user.Email = emailTxtBox.Text;
