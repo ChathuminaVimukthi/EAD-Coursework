@@ -24,8 +24,6 @@ namespace EADCourseworkTwo
             InitializeComponent();
             this.startDatePicker.MinDate = DateTime.Now;
             this.endDatePicker.MinDate = DateTime.Now;
-            this.startTimePicker.MinDate = DateTime.Now;
-            this.endTimePicker.MinDate = DateTime.Now;
             evntToEdit = evnt;
             loggedInUser = user;
             this.tableLayoutPanel2.CellPaint += tableLayoutPane2_CellPaint;
