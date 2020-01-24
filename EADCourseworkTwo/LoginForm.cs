@@ -31,7 +31,8 @@ namespace EADCourseworkTwo
             string password = this.passwordTxtBox.Text;
             if (validations())
             {
-                Boolean validate = userModel.validateUser(userName, password);
+                //Boolean validate = userModel.validateUser(userName, password);
+                Boolean validate = XMLManager.validateUserFromXml(userName,password);
                 if (!validate)
                 {
                     
@@ -63,6 +64,7 @@ namespace EADCourseworkTwo
                 if (isRegistered)
                 {
                     ClearTextBoxes();
+                    XMLManager.writeUsersToXml(user);
                     MessageBox.Show("You have been registered successfully. Please Login to continue!");
                 }
                 else

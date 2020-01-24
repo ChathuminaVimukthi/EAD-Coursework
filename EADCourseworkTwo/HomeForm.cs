@@ -52,11 +52,8 @@ namespace EADCourseworkTwo
             {
                 if (eventList.Count > 0)
                 {
-                    if(evnt.StartingDateTime > currentDateTime)
-                    {
-                        isSetEvents = true;
-                        break;
-                    }
+                    isSetEvents = true;
+                    break;
                 }
             }
             
@@ -215,7 +212,7 @@ namespace EADCourseworkTwo
             }
             else
             {
-                MessageBox.Show("There are no previously added events to view! Please add an event first!");
+                MessageBox.Show("There are no events to view! Please add an event first!");
             }
         }
 

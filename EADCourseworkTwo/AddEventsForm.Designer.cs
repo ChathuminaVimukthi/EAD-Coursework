@@ -58,11 +58,12 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 635F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(945, 635);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 782F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1260, 782);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -70,9 +71,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
             this.panel1.Controls.Add(this.tableLayoutPanel8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(277, 629);
+            this.panel1.Size = new System.Drawing.Size(370, 774);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -85,6 +87,7 @@
             this.tableLayoutPanel8.Controls.Add(this.label3, 0, 4);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 9;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
@@ -96,15 +99,16 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(277, 629);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(370, 774);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // homeBtn
             // 
             this.homeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homeBtn.Location = new System.Drawing.Point(3, 3);
+            this.homeBtn.Location = new System.Drawing.Point(4, 4);
+            this.homeBtn.Margin = new System.Windows.Forms.Padding(4);
             this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(271, 63);
+            this.homeBtn.Size = new System.Drawing.Size(362, 78);
             this.homeBtn.TabIndex = 0;
             this.homeBtn.Text = "Go to Home";
             this.homeBtn.UseVisualStyleBackColor = true;
@@ -113,9 +117,10 @@
             // addContact
             // 
             this.addContact.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addContact.Location = new System.Drawing.Point(3, 72);
+            this.addContact.Location = new System.Drawing.Point(4, 90);
+            this.addContact.Margin = new System.Windows.Forms.Padding(4);
             this.addContact.Name = "addContact";
-            this.addContact.Size = new System.Drawing.Size(271, 63);
+            this.addContact.Size = new System.Drawing.Size(362, 78);
             this.addContact.TabIndex = 1;
             this.addContact.Text = "Add Contact";
             this.addContact.UseVisualStyleBackColor = true;
@@ -129,20 +134,22 @@
             this.tableLayoutPanel3.Controls.Add(this.generateEventsButn, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.numericUpDown1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 348);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 434);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(271, 63);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(362, 78);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // generateEventsButn
             // 
             this.generateEventsButn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.generateEventsButn.Location = new System.Drawing.Point(192, 3);
+            this.generateEventsButn.Location = new System.Drawing.Point(257, 4);
+            this.generateEventsButn.Margin = new System.Windows.Forms.Padding(4);
             this.generateEventsButn.Name = "generateEventsButn";
-            this.generateEventsButn.Size = new System.Drawing.Size(76, 25);
+            this.generateEventsButn.Size = new System.Drawing.Size(101, 31);
             this.generateEventsButn.TabIndex = 2;
             this.generateEventsButn.Text = "Generate";
             this.generateEventsButn.UseVisualStyleBackColor = true;
@@ -151,8 +158,8 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 5);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.numericUpDown1.Location = new System.Drawing.Point(4, 6);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             3,
             0,
@@ -164,7 +171,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(183, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(245, 22);
             this.numericUpDown1.TabIndex = 1;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -179,9 +186,10 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 276);
+            this.label3.Location = new System.Drawing.Point(4, 344);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(271, 69);
+            this.label3.Size = new System.Drawing.Size(362, 86);
             this.label3.TabIndex = 3;
             this.label3.Text = "Select the amount of events you want to add";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -190,16 +198,17 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(286, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(382, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(656, 629);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(874, 774);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -207,9 +216,10 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 34);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 42);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(650, 592);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(866, 728);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -220,20 +230,22 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(4, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(650, 31);
+            this.label2.Size = new System.Drawing.Size(866, 38);
             this.label2.TabIndex = 1;
             this.label2.Text = "Add Event";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddEventsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 635);
+            this.ClientSize = new System.Drawing.Size(1260, 782);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddEventsForm";
             this.Text = "Impresario";
             this.tableLayoutPanel1.ResumeLayout(false);

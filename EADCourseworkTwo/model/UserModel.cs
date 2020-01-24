@@ -122,5 +122,37 @@ namespace EADCourseworkTwo
             }
             return user;
         }
+
+        public List<User> getAllUsers()
+        {
+            List<User> userList = new List<User>();
+            string queryString = "SELECT * FROM Users";
+            using (sqlConnection = new SqlConnection(connectionString))
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, sqlConnection))
+            {
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    User user = new User();
+                    int id = Convert.ToInt32(row["Id"]);
+                    string username = row["UserName"].ToString();
+                    string pass = row["Password"].ToString();
+                    string email = row["Email"].ToString();
+                    string firstName = row["FirstName"].ToString();
+                    string lastName = row["LastName"].ToString();
+
+                    user.UserId = id;
+                    user.UserName = username;
+                    user.Email = email;
+                    user.FirstName = firstName;
+                    user.LastName = lastName;
+                    user.Password = pass;
+                    userList.Add(user);
+                }
+            }
+            return userList;
+        }
     }
 }

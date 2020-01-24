@@ -18,7 +18,7 @@ namespace EADCourseworkTwo
         {
             InitializeComponent();
             loggedInUser = user;
-            populateList();
+            populateAllEventsList();
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
@@ -104,6 +104,8 @@ namespace EADCourseworkTwo
 
         private void populateList()
         {
+            flowLayoutPanel1.Controls.Clear();
+            label1.Text = "Upcoming Events";
             EventModel eventModel = new EventModel();
             IList<Event> eventList = eventModel.getAllEventDetails(loggedInUser.UserId);
             DateTime dateTime = DateTime.Now;
@@ -143,7 +145,79 @@ namespace EADCourseworkTwo
             }
         }
 
-        private void homeBtn_Click(object sender, EventArgs e)
+        private void populateAllEventsList()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            label1.Text = "All Events";
+            EventModel eventModel = new EventModel();
+            IList<Event> eventList = eventModel.getAllEventDetails(loggedInUser.UserId);
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("HH:mm");
+            string date = dateTime.ToString("yyyy-MM-dd");
+            DateTime currentDateTime = DateTime.Parse(date + " " + time);
+
+            foreach (Event evnt in eventList)
+            {
+                if (evnt.StartingDateTime < currentDateTime)
+                {
+                    EventControl eventControl = new EventControl();
+
+                    if (evnt.RecurringFlag == 1 || evnt.RecurringFlag == 2)
+                    {
+                        eventControl.editEvntBtn.Visible = false;
+                        eventControl.IsRecurring = true;
+                        eventControl.BackColor = ColorTranslator.FromHtml("#ff7f50");
+                    }
+                    else if (evnt.RecurringFlag == 3)
+                    {
+                        eventControl.editEvntBtn.Visible = false;
+                        eventControl.IsRecurring = false;
+                        eventControl.BackColor = ColorTranslator.FromHtml("#ff7f50");
+                    }
+
+                    eventControl.Title = evnt.EventTitle + "(Finished)";
+                    eventControl.Description = evnt.EventDescription + " at " + evnt.Location;
+                    eventControl.StartingTime = evnt.StartingDateTime.ToString();
+                    eventControl.EndingTime = evnt.EndingDateTime.ToString();
+                    eventControl.EventId = evnt.EventId;
+                    eventControl.EventType = evnt.EventFlag;
+                    eventControl.RecurringId = evnt.RecurringId;
+                    eventControl.dltEvntbtn.Click += DeleteBtn_Click;
+                    eventControl.editEvntBtn.Click += EditBtn_Click;
+                    flowLayoutPanel1.Controls.Add(eventControl);
+                }
+                else
+                {
+                    EventControl eventControl = new EventControl();
+
+                    if (evnt.RecurringFlag == 1 || evnt.RecurringFlag == 2)
+                    {
+                        eventControl.editEvntBtn.Visible = false;
+                        eventControl.IsRecurring = true;
+                        eventControl.BackColor = ColorTranslator.FromHtml("#706fd3");
+                    }
+                    else if (evnt.RecurringFlag == 3)
+                    {
+                        eventControl.IsRecurring = false;
+                        eventControl.BackColor = ColorTranslator.FromHtml("#33d9b2");
+                    }
+
+                    eventControl.Title = evnt.EventTitle;
+                    eventControl.Description = evnt.EventDescription + " at " + evnt.Location;
+                    eventControl.StartingTime = evnt.StartingDateTime.ToString();
+                    eventControl.EndingTime = evnt.EndingDateTime.ToString();
+                    eventControl.EventId = evnt.EventId;
+                    eventControl.EventType = evnt.EventFlag;
+                    eventControl.RecurringId = evnt.RecurringId;
+                    eventControl.dltEvntbtn.Click += DeleteBtn_Click;
+                    eventControl.editEvntBtn.Click += EditBtn_Click;
+                    flowLayoutPanel1.Controls.Add(eventControl);
+                }
+                
+            }
+        }
+
+            private void homeBtn_Click(object sender, EventArgs e)
         {
             HomeForm homeForm = new HomeForm(loggedInUser);
             this.Hide();
@@ -153,10 +227,12 @@ namespace EADCourseworkTwo
 
         private void addEvent_Click(object sender, EventArgs e)
         {
-            AddEventsForm addEventForm = new AddEventsForm(loggedInUser);
-            this.Hide();
-            addEventForm.ShowDialog();
-            this.Close();
+            populateList();
+        }
+
+        private void pastEventsBtn_Click(object sender, EventArgs e)
+        {
+            populateAllEventsList();
         }
     }
 }

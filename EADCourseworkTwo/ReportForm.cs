@@ -42,15 +42,15 @@ namespace EADCourseworkTwo
 
         private void generateReport()
         {
-
+            //get the current time
             DateTime dateTime = DateTime.Now;
             string time = dateTime.ToString("HH:mm");
             string date = dateTime.ToString("yyyy-MM-dd");
             DateTime currentDateTime = DateTime.Parse(date+" "+time);
 
             EventModel eventModel = new EventModel();
-            IList<Event> pastEventList = new List<Event>();
-            IList<Event> allevents = eventModel.getAllEventDetails(loggedInUser.UserId);
+            IList<Event> pastEventList = new List<Event>();//past events list
+            IList<Event> allevents = eventModel.getAllEventDetails(loggedInUser.UserId);//all events list
             foreach(Event evnt in allevents)
             {
                 if(evnt.StartingDateTime < currentDateTime && evnt.EndingDateTime < currentDateTime)
@@ -60,22 +60,28 @@ namespace EADCourseworkTwo
                 }
             }
 
+            //get total number of past events
             totalNumOfEvents = pastEventList.Count;
 
             foreach(Event evnt in pastEventList)
             {
                 int difference = (int)evnt.EndingDateTime.Subtract(evnt.StartingDateTime).TotalMinutes;
-                totalTimeUsageForEvents += difference;
+                totalTimeUsageForEvents += difference;//calculating the total time usage for all past events
             }
 
+            //calculating the average time usage per event
             averageTimeUsagePerEvent = totalTimeUsageForEvents / totalNumOfEvents;
 
+            //calculating the number of weeks from first event's date upto current date
             totalNumberOfweeks = (currentDateTime - pastEventList.FirstOrDefault().StartingDateTime).TotalDays / 7;
 
+            //calculating the number of events perweek
             numberOfEventsPerWeek = totalNumOfEvents / totalNumberOfweeks;
 
+            //calculating the predicted time usage per week
             timeUsagePerWeek = numberOfEventsPerWeek * averageTimeUsagePerEvent;
 
+            //calculating the predicted time usage for upcoming month
             timeUsagePerMonth = timeUsagePerWeek * 4;
 
             totalHours = (int)timeUsagePerMonth / 60;
@@ -98,13 +104,25 @@ namespace EADCourseworkTwo
 
         private async void generateReportBtn_ClickAsync(object sender, EventArgs e)
         {
-            var time = await Task.Run(() => this.writeFile());
-            MessageBox.Show("File Generated Successfully");
+            SaveFileDialog locate = new SaveFileDialog();
+
+            locate.Filter = "txt files (*.txt)|*.txt|dat files (*.dat)|*.dat";
+            locate.FilterIndex = 2;
+            locate.RestoreDirectory = true;
+
+            if (locate.ShowDialog() == DialogResult.OK)
+            {
+
+                Console.WriteLine("Start");
+                var time = await Task.Run(() => this.writeFile(locate.FileName));
+                MessageBox.Show("Successfully Genarate File");
+
+            }
         }
 
-        private int writeFile()
+        private int writeFile(string fileName)
         {
-            StreamWriter sw = new StreamWriter("ImpresarioReport.dat", false, Encoding.UTF8);
+            StreamWriter sw = new StreamWriter(fileName, false, Encoding.UTF8);
             try
             {
                 sw.WriteLine("Today is : " + DateTime.Now + "\n" + "Name :" + loggedInUser.UserName + "\n\n");
